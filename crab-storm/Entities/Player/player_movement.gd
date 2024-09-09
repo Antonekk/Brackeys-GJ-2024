@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 40.0
-const RUN_SPEED = 60.0
+const SPEED = 75.0
+const RUN_SPEED = 110.0
 
 @onready var player_sprite: Sprite2D = $Sprite2D
 
