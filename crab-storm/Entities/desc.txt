@@ -1,0 +1,2 @@
+Here you can place all the entities used in game
+Eg: Coin, Sword, Player, UI

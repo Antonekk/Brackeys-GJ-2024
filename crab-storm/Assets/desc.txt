@@ -1,0 +1,2 @@
+Here you can place assets used in game
+Eg: Music, Fonts
