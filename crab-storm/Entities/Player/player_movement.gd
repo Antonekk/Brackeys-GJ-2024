@@ -3,8 +3,18 @@ extends CharacterBody2D
 
 const SPEED = 75.0
 const RUN_SPEED = 110.0
+const DODGE_SPEED = 200.0
+const DODGE_TIME = 0.5
+
+var is_dodging: bool = false
 
 @onready var player_sprite: Sprite2D = $Sprite2D
+
+
+func handle_dodge(delta: float) -> void:
+	pass
+	
+	
 
 
 func _physics_process(delta: float) -> void:

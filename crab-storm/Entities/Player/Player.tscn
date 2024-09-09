@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dyanknjtg5f6t" path="res://Common/HealthSystem/health_system.tscn" id="3_x5xr0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vlsm"]
-size = Vector2(11, 19)
+size = Vector2(11, 10)
 
 [sub_resource type="GDScript" id="GDScript_wj2ka"]
 script/source = "extends Node
@@ -35,7 +35,7 @@ position = Vector2(0, -10)
 texture = ExtResource("2_3aqbr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -9.5)
+position = Vector2(-0.5, -5)
 shape = SubResource("RectangleShape2D_8vlsm")
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_x5xr0")]

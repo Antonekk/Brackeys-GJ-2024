@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0yjnehn4wagh"]
+
+[ext_resource type="Texture2D" uid="uid://q7rkqiis86ra" path="res://Entities/Enemies/Crab/Art/CrabIdle.png" id="1_406xi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knjea"]
+
+[node name="Crab" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_406xi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_knjea")
