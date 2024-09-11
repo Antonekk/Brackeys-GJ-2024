@@ -5,10 +5,13 @@ const SPEED = 75.0
 const RUN_SPEED = 110.0
 
 
+
 const DODGE_SPEED: float = 200.0
 const DODGE_COOLDOWN: float = 5.0
 const DODGE_TIME: float = 0.2
 
+
+@onready var picker: Picker = $Picker
 
 enum DodgeState {CAN_DODGE, IS_DODGING ,DODGE_ON_COOLDOWN}
 
@@ -41,7 +44,13 @@ func _physics_process(delta: float) -> void:
 	var direction_vertical := Input.get_axis("Move_Up", "Move_Down")
 	var is_running := Input.is_action_pressed("Run")
 	var dodge_input := Input.is_action_pressed("Dodge")
-
+	var pickup_input := Input.is_action_just_pressed("interact")
+	
+	if pickup_input:
+		if picker.CurrentPickerState == picker.PickerState.Empty:
+			picker.pickup()
+		else:
+			picker.throw()
 	 # Create a direction vector from the input
 	var direction2D := Vector2(direction_horizontal, direction_vertical)
 	
