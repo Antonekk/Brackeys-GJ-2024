@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c0yc27gffqx8w" path="res://Stages/Minigames/Drzewo/hipek_tree.tscn" id="1_b8gsj"]
 [ext_resource type="Script" path="res://Stages/Minigames/Drzewo/hipek_tree.gd" id="2_aefw4"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="3_n2cbf"]
-[ext_resource type="Texture2D" uid="uid://cyanx0pdd8wcg" path="res://Assets/Tilesets/grasstiles.png" id="4_i7x8p"]
+[ext_resource type="Texture2D" uid="uid://iqtg7idgayd3" path="res://Assets/Tilesets/grasstiles.png" id="4_i7x8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_113k8"]
 texture = ExtResource("4_i7x8p")
