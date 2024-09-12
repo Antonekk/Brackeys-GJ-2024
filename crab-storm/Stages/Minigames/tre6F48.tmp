@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=4 uid="uid://dchlrn5hxhy5c"]
+
+[ext_resource type="PackedScene" uid="uid://c0yc27gffqx8w" path="res://Stages/Minigames/hipek_tree.tscn" id="1_b8gsj"]
+[ext_resource type="Script" path="res://Stages/Minigames/hipek_tree.gd" id="2_aefw4"]
+[ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="3_n2cbf"]
+[ext_resource type="PackedScene" uid="uid://cc7w8qx0jye8a" path="res://Stages/Minigames/drzewo temp.tscn" id="4_6o6bm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3w0oj"]
+texture = ExtResource("3_n2cbf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+1:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i04lf"]
+sources/0 = SubResource("TileSetAtlasSource_3w0oj")
+
+[node name="Tree_Minigame" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.315, 4.315)
+
+[node name="hipek_tree" parent="." instance=ExtResource("1_b8gsj")]
+z_index = 1
+position = Vector2(2, 1)
+script = ExtResource("2_aefw4")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEAAAABAAEAAAD//wEAAAABAAEAAAAAAAEAAAABAAEAAAABAAEAAAABAAEAAAACAAEAAAABAAEAAAADAAEAAAABAAEAAAD9/wEAAAABAAEAAAD8/wEAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_i04lf")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_6o6bm")]
