@@ -2,7 +2,7 @@ extends Node
 
 @onready var static_body_2d: StaticBody2D = $"../StaticBody2D"
 const BEACH = preload("res://Stages/beach.tscn")
-const DRZEWO_TEMP = preload("res://Stages/Minigames/drzewo temp.tscn")
+const DRZEWO_TEMP = preload("res://Stages/Minigames/Drzewo/drzewo temp.tscn")
 
 var tree = []
 var rng = RandomNumberGenerator.new()

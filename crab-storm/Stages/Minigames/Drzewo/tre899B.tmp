@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=4 uid="uid://dchlrn5hxhy5c"]
 
-[ext_resource type="Script" path="res://Stages/Minigames/game_manager.gd" id="1_8y2xt"]
-[ext_resource type="PackedScene" uid="uid://c0yc27gffqx8w" path="res://Stages/Minigames/hipek_tree.tscn" id="1_b8gsj"]
-[ext_resource type="Script" path="res://Stages/Minigames/hipek_tree.gd" id="2_aefw4"]
+[ext_resource type="Script" path="res://Stages/Minigames/Drzewo/game_manager.gd" id="1_8y2xt"]
+[ext_resource type="PackedScene" uid="uid://c0yc27gffqx8w" path="res://Stages/Minigames/Drzewo/hipek_tree.tscn" id="1_b8gsj"]
+[ext_resource type="Script" path="res://Stages/Minigames/Drzewo/hipek_tree.gd" id="2_aefw4"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="3_n2cbf"]
 [ext_resource type="Texture2D" uid="uid://cyanx0pdd8wcg" path="res://Assets/Tilesets/grasstiles.png" id="4_i7x8p"]
 
