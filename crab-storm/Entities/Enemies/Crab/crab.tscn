@@ -2,12 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://q7rkqiis86ra" path="res://Entities/Enemies/Crab/Art/CrabIdle.png" id="1_406xi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_knjea"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j67bg"]
+radius = 3.0
+height = 18.0
 
 [node name="Crab" type="CharacterBody2D"]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_406xi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_knjea")
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j67bg")
