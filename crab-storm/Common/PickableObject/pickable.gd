@@ -3,8 +3,6 @@ class_name Pickable
 
 enum PickableState {OnGround, Locked ,Picked, Throw}
 
-
-@export var impulse : float
 var CurrentState : PickableState
 var FollowPoint : Node2D
 @export var Collider : CollisionShape2D
@@ -29,15 +27,10 @@ func EnablePickable(body : Node2D) -> void:
 	Collider.disabled = true
 	CurrentState = PickableState.Picked
 	FollowPoint = body
-	PickableObject.z_index = 1
 	print_debug("PickUp")
 	
 func DisablePickable(body : Node2D) -> void:
-	CurrentState = PickableState.Throw
 	Collider.disabled = false
+	CurrentState = PickableState.Throw
 	FollowPoint = null
-	PickableObject.z_index = 0
 	print_debug("Exit Pickup")
-	
-	
-	
