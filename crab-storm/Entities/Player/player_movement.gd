@@ -46,23 +46,7 @@ func _physics_process(delta: float) -> void:
 	var dodge_input := Input.is_action_pressed("Dodge")
 	var pickup_input := Input.is_action_just_pressed("interact")
 	
-	if pickup_input:
-		if picker.CurrentPickerState == picker.PickerState.Empty:
-			picker.pickup()
-		else:
-			picker.throw()
-	 # Create a direction vector from the input
-	var direction2D := Vector2(direction_horizontal, direction_vertical)
-	
-	# Normalize the direction vector if it's not zero
-	if direction2D.length() > 0:
-		direction2D = direction2D.normalized()
-	
-	# Handle sprite fliping
-	if direction_horizontal != 0:
-		player_sprite.flip_h = direction_horizontal > 0
-		
-	if dodge_input and CurrentDodgingState == DodgeState.CAN_DODGE:
+if dodge_input and CurrentDodgingState == DodgeState.CAN_DODGE:
 		dodge_direction = direction2D
 		handle_dodge_cooldowns()
 		

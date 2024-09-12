@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0yjnehn4wagh" path="res://Entities/Enemies/Crab/crab.tscn" id="3_bkl0m"]
 [ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="4_xk8pd"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_goea8"]
+
 texture = ExtResource("1_13heb")
 0:0/0 = 0
 1:0/0 = 0
@@ -47,7 +47,7 @@ texture = ExtResource("1_13heb")
 1:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_gvx6m"]
-sources/1 = SubResource("TileSetAtlasSource_goea8")
+sources/1 = SubResource("TileSetAtlasSource_plh6k")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2rlt"]
 texture = ExtResource("2_0djxw")
