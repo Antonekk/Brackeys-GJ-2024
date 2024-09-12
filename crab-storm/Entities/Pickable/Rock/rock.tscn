@@ -4,11 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dd1t7dg0ltshf" path="res://Common/PickableObject/pickable.tscn" id="1_qd4tl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ids6t"]
-radius = 3.0
+radius = 6.0
 height = 18.0
 
 [node name="Rock" type="StaticBody2D"]
-scale = Vector2(0.65, 0.65)
 collision_layer = 5
 
 [node name="RockSprite" type="Sprite2D" parent="."]
@@ -21,7 +20,6 @@ Collider = NodePath("../RockCollision")
 PickableObject = NodePath("..")
 
 [node name="RockCollision" type="CollisionShape2D" parent="."]
-y_sort_enabled = true
-position = Vector2(1, 2)
+position = Vector2(1, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ids6t")
