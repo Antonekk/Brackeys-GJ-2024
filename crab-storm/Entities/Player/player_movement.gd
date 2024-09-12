@@ -62,6 +62,7 @@ func _physics_process(delta: float) -> void:
 	var pickup_input := Input.is_action_just_pressed("Interact")
 	var shoot_input := Input.is_action_just_pressed("Shoot")
 	
+	#handle shooting logic
 	if shoot_input and CurrentAttackState == AttackState.EMPTY_AMMO:
 		handle_ammo_pickup()	
 	elif shoot_input and CurrentAttackState == AttackState.HAS_AMMO:
