@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0yc27gffqx8w"]
-
-[ext_resource type="Texture2D" uid="uid://m58teogmy3d0" path="res://Entities/Player/Art/CharacterIdle.png" id="1_ylu1f"]
-
-[node name="hipek_tree" type="CharacterBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ylu1f")
