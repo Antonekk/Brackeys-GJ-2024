@@ -2,7 +2,8 @@ extends Node
 
 @onready var static_body_2d: StaticBody2D = $"../StaticBody2D"
 const BEACH = preload("res://Stages/beach.tscn")
-const DRZEWO_TEMP = preload("res://Stages/Minigames/Drzewo/drzewo temp.tscn")
+const DRZEWO_TEMP = preload("res://Stages/Minigames/Drzewo/drzewo_z_gal.tscn")
+@onready var gura: Sprite2D = $Gura
 
 var tree = []
 var rng = RandomNumberGenerator.new()
@@ -19,14 +20,18 @@ func _ready() -> void:
 		var block = DRZEWO_TEMP.instantiate()
 		tree.append(block)
 		add_child(block)
-		block.position.y -= i * 32
+		block.position.y -= i * 16 - 8 + 16
 		block.get_child(0).flip_h = bool(rand)
+		if !rand:
+			block.position.x -= 16
+	gura.position.y -= height * 16 - 8 + 16
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if current == height:
 		finish(score)	
-	if Input.is_action_just_pressed("lmb"):
+	if Input.is_action_just_pressed("rmb"):
 		if !tree[current].get_child(0).flip_h:
 			print("good")
 			score += 1
@@ -36,8 +41,9 @@ func _process(delta: float) -> void:
 		tree[current].queue_free()
 		current += 1
 		for i in range(current, height):
-			tree[i].position.y += 32
-	elif Input.is_action_just_pressed("rmb"):
+			tree[i].position.y += 16
+		gura.position.y += 16
+	elif Input.is_action_just_pressed("lmb"):
 		if tree[current].get_child(0).flip_h:
 			score += 1
 			print("good")
@@ -47,8 +53,8 @@ func _process(delta: float) -> void:
 		tree[current].queue_free()
 		current += 1
 		for i in range(current, height):
-			tree[i].position.y += 32
-
+			tree[i].position.y += 16 
+		gura.position.y += 16
 func finish(score: int) -> void:
 	#przekaz ilosc punktow
 	get_tree().change_scene_to_packed(BEACH)
