@@ -4,8 +4,8 @@ var parameteres = {
 	"wood": 0,
 	"stone": 0,
 	"fish": 0,
-	"player_pos": null,
-	"time": null
+	"player_pos": Vector2(0, 0),
+	"time": 0
 }
 
 func cleanup():
