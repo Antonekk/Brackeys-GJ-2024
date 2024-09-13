@@ -108,7 +108,7 @@ func movement() -> void:
 			CurrentMovementState = MovementState.WALKING
 
 func pickup() -> void:
-	var pickup_input := Input.is_action_just_pressed("Interact")
+	var pickup_input := Input.is_action_just_pressed("Pickup")
 	if pickup_input:
 		if picker.CurrentPickerState == picker.PickerState.Empty and CurrentAttackState != AttackState.COLLECTING_AMMO and CurrentDodgingState!= DodgeState.IS_DODGING:
 			picker.pickup()
