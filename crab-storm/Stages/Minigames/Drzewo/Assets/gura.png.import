@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4hpa81jitlr7"
-path="res://.godot/imported/gura.png-a60bd24a0634728ac1abf5268af29c7d.ctex"
+path="res://.godot/imported/gura.png-4b5e9b31c9f7639c1bbf77ab14c60631.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stages/Minigames/Drzewo/gura.png"
-dest_files=["res://.godot/imported/gura.png-a60bd24a0634728ac1abf5268af29c7d.ctex"]
+source_file="res://Stages/Minigames/Drzewo/Assets/gura.png"
+dest_files=["res://.godot/imported/gura.png-4b5e9b31c9f7639c1bbf77ab14c60631.ctex"]
 
 [params]
 

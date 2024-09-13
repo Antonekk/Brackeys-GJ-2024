@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://lwx4dshxo3im"]
 
-[ext_resource type="Script" path="res://Stages/scene_manager.gd" id="1_xx0ro"]
-[ext_resource type="PackedScene" uid="uid://dchlrn5hxhy5c" path="res://Stages/Minigames/Drzewo/tree_minigame.tscn" id="2_fyjcj"]
+[ext_resource type="PackedScene" uid="uid://ihk6hcpo1kpp" path="res://Stages/beach.tscn" id="1_4m02d"]
+[ext_resource type="Script" path="res://Assets/Scripts/scene_manager.gd" id="1_xx0ro"]
 
 [sub_resource type="Animation" id="Animation_pxoeq"]
 length = 0.001
@@ -78,11 +78,11 @@ size_flags_vertical = 4
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Tree_Minigame" parent="." instance=ExtResource("2_fyjcj")]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_lpes6")
 }
+
+[node name="Beach" parent="." instance=ExtResource("1_4m02d")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
