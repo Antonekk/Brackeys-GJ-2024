@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dchlrn5hxhy5c"]
+[gd_scene load_steps=15 format=4 uid="uid://dchlrn5hxhy5c"]
 
 [ext_resource type="Script" path="res://Stages/Minigames/Drzewo/game_manager.gd" id="1_8y2xt"]
 [ext_resource type="PackedScene" uid="uid://c0yc27gffqx8w" path="res://Stages/Minigames/Drzewo/hipek_tree.tscn" id="1_b8gsj"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Stages/Minigames/Drzewo/hipek_tree.gd" id="2_aefw4"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="3_n2cbf"]
 [ext_resource type="Texture2D" uid="uid://iqtg7idgayd3" path="res://Assets/Tilesets/grasstiles.png" id="4_i7x8p"]
-[ext_resource type="PackedScene" uid="uid://b2t2tlqfh7sgu" path="res://Common/level_switch_trigger.tscn" id="4_rbejr"]
 [ext_resource type="Texture2D" uid="uid://dbdufnpr4gqka" path="res://Assets/Tilesets/dzewo.png" id="6_pd1m5"]
 [ext_resource type="Texture2D" uid="uid://bd622yq60twb5" path="res://Stages/Minigames/Drzewo/korzen.png" id="7_645da"]
 [ext_resource type="Texture2D" uid="uid://4hpa81jitlr7" path="res://Stages/Minigames/Drzewo/gura.png" id="8_3duro"]
@@ -91,8 +90,6 @@ script = ExtResource("1_8y2xt")
 
 [node name="Gura" type="Sprite2D" parent="GameManager"]
 texture = ExtResource("8_3duro")
-
-[node name="LevelSwitchTrigger" parent="GameManager" instance=ExtResource("4_rbejr")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -43)
