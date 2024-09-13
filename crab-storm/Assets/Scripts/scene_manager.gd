@@ -6,9 +6,8 @@ var next_level = null
 func _ready() -> void:
 	SignalBus.level_change.connect(handle_level_change)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func transfer_data(new, old):
+	new.load_level_data(old.parameteres)
 
 func handle_level_change(next):
 	match next:
@@ -20,8 +19,7 @@ func handle_level_change(next):
 			return
 	next_level = next_level.instantiate()
 	anim.play("fade_in")
-	
-
+	transfer_data(next_level, current_level)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	match anim_name:

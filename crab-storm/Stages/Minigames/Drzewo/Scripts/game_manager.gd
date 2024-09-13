@@ -1,6 +1,5 @@
 extends Node
 
-@onready var static_body_2d: StaticBody2D = $"../StaticBody2D"
 const DRZEWO_TEMP = preload("res://Stages/Minigames/Drzewo/Scenes/drzewo_z_gal.tscn")
 @onready var gura: Sprite2D = $Gura
 var enabled: bool = true
