@@ -14,10 +14,12 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("lmb"):
 			position.x = -20
 			sprite_2d.flip_h = true
+			sprite_2d.stop()
 			sprite_2d.play("chop")
 		elif Input.is_action_just_pressed("rmb"):
 			position.x = 20
 			sprite_2d.flip_h = false
+			sprite_2d.stop()
 			sprite_2d.play("chop")
 
 func level_change(temp):
