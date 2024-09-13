@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 			for i in range(current, height):
 				tree[i].position.y += 16 
 			gura.position.y += 16
+
 func finish(score: int) -> void:
 	enabled = false
 	$LevelSwitchTrigger.init_level_change()
