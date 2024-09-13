@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://e180tedlaho5"]
 
-[ext_resource type="Texture2D" uid="uid://c5kdk332rdlie" path="res://Stages/Minigames/Drzewo/gaomz.png" id="1_j7pse"]
+[ext_resource type="Texture2D" uid="uid://c5kdk332rdlie" path="res://Stages/Minigames/Drzewo/Assets/gaomz.png" id="1_hmkw4"]
 
 [node name="Drzewo" type="Sprite2D"]
 position = Vector2(32, 8)
-texture = ExtResource("1_j7pse")
+texture = ExtResource("1_hmkw4")
 offset = Vector2(-24, -8)
 flip_h = true

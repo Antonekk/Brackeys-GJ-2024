@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5kdk332rdlie"
-path="res://.godot/imported/gaomz.png-fe08619db0d27148217bb86d41b1e7f3.ctex"
+uid="uid://bd622yq60twb5"
+path="res://.godot/imported/korzen.png-65d172c7a7bc3d01c5370db8da9dcdbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stages/Minigames/Drzewo/gaomz.png"
-dest_files=["res://.godot/imported/gaomz.png-fe08619db0d27148217bb86d41b1e7f3.ctex"]
+source_file="res://Stages/Minigames/Drzewo/Assets/korzen.png"
+dest_files=["res://.godot/imported/korzen.png-65d172c7a7bc3d01c5370db8da9dcdbb.ctex"]
 
 [params]
 

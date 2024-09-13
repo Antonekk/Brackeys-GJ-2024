@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwb53xhcldul0"
-path="res://.godot/imported/koda.png-804ee4b4cccfed85c01b641d36763178.ctex"
+uid="uid://c5kdk332rdlie"
+path="res://.godot/imported/gaomz.png-b9a55218b0cca29cdd72279bb94ad4fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stages/Minigames/Drzewo/koda.png"
-dest_files=["res://.godot/imported/koda.png-804ee4b4cccfed85c01b641d36763178.ctex"]
+source_file="res://Stages/Minigames/Drzewo/Assets/gaomz.png"
+dest_files=["res://.godot/imported/gaomz.png-b9a55218b0cca29cdd72279bb94ad4fe.ctex"]
 
 [params]
 
