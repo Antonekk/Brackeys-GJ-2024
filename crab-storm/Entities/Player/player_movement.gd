@@ -59,7 +59,7 @@ func handle_shooting_projectile() -> void:
 	var ammo_instance : RigidBody2D = Rock_Ammo_Projectile.instantiate()
 	ammo_instance.position = bullet_spawn_point.global_position
 	
-	var vect = (get_global_mouse_position() - position).normalized()
+	var vect = (get_global_mouse_position() - bullet_spawn_point.global_position).normalized()
 	
 	
 	ammo_instance.apply_impulse(vect*BULLET_SPEED, Vector2(0,0))
@@ -144,7 +144,3 @@ func _physics_process(delta: float) -> void:
 	
 	# Move the player using the velocity
 	move_and_slide()
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	SignalBus.level_change.emit("TreeMinigame")
