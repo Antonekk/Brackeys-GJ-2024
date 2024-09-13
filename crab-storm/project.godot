@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Crab Storm"
-run/main_scene="res://Stages/beach.tscn"
+run/main_scene="res://Stages/scene_manager.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalBus="*res://SignalBus.gd"
 
 [dotnet]
 

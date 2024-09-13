@@ -2,11 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c5kdk332rdlie" path="res://Stages/Minigames/Drzewo/gaomz.png" id="1_j7pse"]
 
-[node name="Drzewo" type="StaticBody2D"]
-position = Vector2(-16, -1)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(48, 9)
+[node name="Drzewo" type="Sprite2D"]
+position = Vector2(32, 8)
 texture = ExtResource("1_j7pse")
 offset = Vector2(-24, -8)
 flip_h = true

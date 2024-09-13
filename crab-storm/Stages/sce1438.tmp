@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwdkqlp7466f"]
+
+[ext_resource type="Script" path="res://Stages/scene_manager.gd" id="1_xx0ro"]
+[ext_resource type="PackedScene" uid="uid://dchlrn5hxhy5c" path="res://Stages/Minigames/Drzewo/tree_minigame.tscn" id="2_fyjcj"]
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_xx0ro")
+
+[node name="Tree_Minigame" parent="." instance=ExtResource("2_fyjcj")]

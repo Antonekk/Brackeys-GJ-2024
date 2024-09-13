@@ -4,6 +4,7 @@ extends Node
 const BEACH = preload("res://Stages/beach.tscn")
 const DRZEWO_TEMP = preload("res://Stages/Minigames/Drzewo/drzewo_z_gal.tscn")
 @onready var gura: Sprite2D = $Gura
+var enabled: bool = true
 
 var tree = []
 var rng = RandomNumberGenerator.new()
@@ -21,7 +22,7 @@ func _ready() -> void:
 		tree.append(block)
 		add_child(block)
 		block.position.y -= i * 16 - 8 + 16
-		block.get_child(0).flip_h = bool(rand)
+		block.flip_h = bool(rand)
 		if !rand:
 			block.position.x -= 16
 	gura.position.y -= height * 16 - 8 + 16
@@ -29,32 +30,33 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if current == height:
-		finish(score)	
-	if Input.is_action_just_pressed("rmb"):
-		if !tree[current].get_child(0).flip_h:
-			print("good")
-			score += 1
-		else:
-			finish(score)
-			print("bad")
-		tree[current].queue_free()
-		current += 1
-		for i in range(current, height):
-			tree[i].position.y += 16
-		gura.position.y += 16
-	elif Input.is_action_just_pressed("lmb"):
-		if tree[current].get_child(0).flip_h:
-			score += 1
-			print("good")
-		else:
-			finish(score)
-			print("bad")
-		tree[current].queue_free()
-		current += 1
-		for i in range(current, height):
-			tree[i].position.y += 16 
-		gura.position.y += 16
+	if enabled:
+		if current == height:
+			finish(score)	
+		if Input.is_action_just_pressed("rmb"):
+			if !tree[current].flip_h:
+				print("good")
+				score += 1
+			else:
+				finish(score)
+				print("bad")
+			tree[current].queue_free()
+			current += 1
+			for i in range(current, height):
+				tree[i].position.y += 16
+			gura.position.y += 16
+		elif Input.is_action_just_pressed("lmb"):
+			if tree[current].flip_h:
+				score += 1
+				print("good")
+			else:
+				finish(score)
+				print("bad")
+			tree[current].queue_free()
+			current += 1
+			for i in range(current, height):
+				tree[i].position.y += 16 
+			gura.position.y += 16
 func finish(score: int) -> void:
-	#przekaz ilosc punktow
-	get_tree().change_scene_to_packed(BEACH)
+	enabled = false
+	$LevelSwitchTrigger.init_level_change()
