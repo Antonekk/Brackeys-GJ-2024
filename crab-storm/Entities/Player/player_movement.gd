@@ -11,11 +11,14 @@ const DODGE_COOLDOWN: float = 5.0
 const DODGE_TIME: float = 0.2
 
 const COLLECT_AMMO_TIME: float = 0.5
+const BULLET_SPEED  = 200
+var Rock_Ammo_Projectile = preload("res://Entities/Projectiles/Rock_Projectile/projectile.tscn")
 
 
 
 
 @onready var picker: Picker = $Picker
+@onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
 
 enum DodgeState {CAN_DODGE, IS_DODGING ,DODGE_ON_COOLDOWN}
 
@@ -27,7 +30,7 @@ var CurrentDodgingState : DodgeState = DodgeState.CAN_DODGE
 
 var dodge_direction:Vector2
 
-@onready var player_sprite: Sprite2D = $Sprite2D
+@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 # function for handling dodging logic
@@ -50,10 +53,17 @@ func handle_ammo_pickup() -> void:
 	
 func handle_shooting_projectile() -> void:
 	CurrentAttackState = AttackState.EMPTY_AMMO
-	print("Shoot")
+	var ammo_instance : RigidBody2D = Rock_Ammo_Projectile.instantiate()
+	ammo_instance.position = bullet_spawn_point.global_position
+	
+	var vect = (get_global_mouse_position() - position).normalized()
+	
+	
+	ammo_instance.apply_impulse(vect*BULLET_SPEED, Vector2(0,0))
+	get_tree().root.add_child(ammo_instance)
+	
 
 func _physics_process(delta: float) -> void:
-	
 	# Get input direction -1, 0, 1 depending on input
 	var direction_horizontal := Input.get_axis("Move_Left", "Move_Right")
 	var direction_vertical := Input.get_axis("Move_Up", "Move_Down")

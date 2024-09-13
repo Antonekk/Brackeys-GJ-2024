@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1t41e7dxhe88"]
+[gd_scene load_steps=12 format=3 uid="uid://b1t41e7dxhe88"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_movement.gd" id="1_c2po7"]
-[ext_resource type="Texture2D" uid="uid://m58teogmy3d0" path="res://Entities/Player/Art/CharacterIdle.png" id="2_3aqbr"]
 [ext_resource type="PackedScene" uid="uid://dwvubvgv8gb7q" path="res://Common/PickableObject/picker.tscn" id="2_usxer"]
 [ext_resource type="PackedScene" uid="uid://dyanknjtg5f6t" path="res://Common/HealthSystem/health_system.tscn" id="3_x5xr0"]
+[ext_resource type="Texture2D" uid="uid://b4i10ry8esirc" path="res://Entities/Player/Art/idle.png" id="4_m7c8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vlsm"]
 size = Vector2(11, 10)
@@ -31,6 +31,38 @@ func handle_death() -> void:
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yeyd"]
 radius = 16.0312
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqqkg"]
+atlas = ExtResource("4_m7c8l")
+region = Rect2(0, 0, 240, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tswls"]
+atlas = ExtResource("4_m7c8l")
+region = Rect2(240, 0, 240, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5vmm"]
+atlas = ExtResource("4_m7c8l")
+region = Rect2(480, 0, 240, 340)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hmwxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqqkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tswls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5vmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tswls")
+}],
+"loop": true,
+"name": &"idlle",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_c2po7")
@@ -42,10 +74,6 @@ position = Vector2(0, -5)
 placement = NodePath("../HoldingSpot")
 pickup_area = NodePath("../PickupArea")
 holder = NodePath("..")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
-texture = ExtResource("2_3aqbr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -5)
@@ -60,3 +88,14 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_1yeyd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -11)
+scale = Vector2(0.063, 0.063)
+sprite_frames = SubResource("SpriteFrames_hmwxq")
+animation = &"idlle"
+autoplay = "idlle"
+frame_progress = 0.532426
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, -7)
