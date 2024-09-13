@@ -38,9 +38,11 @@ var dodge_direction:Vector2
 
 # function for handling dodging logic
 func handle_dodge_cooldowns() -> void:
+	collision_mask = 0b001
 	CurrentDodgingState = DodgeState.IS_DODGING
 	await get_tree().create_timer(DODGE_TIME).timeout
 	print("DODGE ENDED")
+	collision_mask = 0b101
 	CurrentDodgingState = DodgeState.DODGE_ON_COOLDOWN
 	await get_tree().create_timer(DODGE_COOLDOWN).timeout
 	print("DODGE IS UP")
