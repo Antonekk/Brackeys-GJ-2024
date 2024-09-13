@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://dchlrn5hxhy5c"]
+[gd_scene load_steps=15 format=4 uid="uid://dchlrn5hxhy5c"]
 
-[ext_resource type="Script" path="res://Stages/Minigames/Drzewo/Scripts/game_manager.gd" id="1_8y2xt"]
-[ext_resource type="PackedScene" uid="uid://c0yc27gffqx8w" path="res://Stages/Minigames/Drzewo/Scenes/hipek_tree.tscn" id="1_b8gsj"]
-[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_phyvm"]
-[ext_resource type="Script" path="res://Stages/Minigames/Drzewo/Scripts/hipek_tree.gd" id="2_aefw4"]
-[ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="3_n2cbf"]
-[ext_resource type="Texture2D" uid="uid://iqtg7idgayd3" path="res://Assets/Tilesets/grasstiles.png" id="4_i7x8p"]
-[ext_resource type="PackedScene" uid="uid://cnwylcwnt2p03" path="res://Common/level_switch_trigger.tscn" id="4_rbejr"]
-[ext_resource type="Texture2D" uid="uid://dbdufnpr4gqka" path="res://Assets/Tilesets/dzewo.png" id="6_pd1m5"]
-[ext_resource type="Texture2D" uid="uid://bd622yq60twb5" path="res://Stages/Minigames/Drzewo/Assets/korzen.png" id="7_645da"]
-[ext_resource type="Texture2D" uid="uid://4hpa81jitlr7" path="res://Stages/Minigames/Drzewo/Assets/gura.png" id="8_3duro"]
-[ext_resource type="Texture2D" uid="uid://cwb53xhcldul0" path="res://Stages/Minigames/Drzewo/Assets/koda.png" id="9_b7e6h"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_x3wxg"]
+[ext_resource type="Script" path="res://Stages/Minigames/Drzewo/Scripts/game_manager.gd" id="2_7ac4b"]
+[ext_resource type="Texture2D" uid="uid://4hpa81jitlr7" path="res://Stages/Minigames/Drzewo/Assets/gura.png" id="3_k3cvd"]
+[ext_resource type="PackedScene" uid="uid://c0yc27gffqx8w" path="res://Stages/Minigames/Drzewo/Scenes/hipek_tree.tscn" id="4_ubrqf"]
+[ext_resource type="Script" path="res://Stages/Minigames/Drzewo/Scripts/hipek_tree.gd" id="5_p85ir"]
+[ext_resource type="Texture2D" uid="uid://iqtg7idgayd3" path="res://Assets/Tilesets/grasstiles.png" id="6_efej8"]
+[ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="7_rubqm"]
+[ext_resource type="Texture2D" uid="uid://dbdufnpr4gqka" path="res://Assets/Tilesets/dzewo.png" id="8_kk5r4"]
+[ext_resource type="Texture2D" uid="uid://bd622yq60twb5" path="res://Stages/Minigames/Drzewo/Assets/korzen.png" id="9_eb225"]
+[ext_resource type="Texture2D" uid="uid://cwb53xhcldul0" path="res://Stages/Minigames/Drzewo/Assets/koda.png" id="10_63vvw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_113k8"]
-texture = ExtResource("4_i7x8p")
+texture = ExtResource("6_efej8")
 0:0/0 = 0
 2:1/0 = 0
 3:1/0 = 0
@@ -27,7 +26,7 @@ texture = ExtResource("4_i7x8p")
 4:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kldx"]
-texture = ExtResource("3_n2cbf")
+texture = ExtResource("7_rubqm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -67,7 +66,7 @@ texture = ExtResource("3_n2cbf")
 1:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d4ftf"]
-texture = ExtResource("6_pd1m5")
+texture = ExtResource("8_kk5r4")
 1:0/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -84,24 +83,22 @@ sources/1 = SubResource("TileSetAtlasSource_8kldx")
 sources/2 = SubResource("TileSetAtlasSource_d4ftf")
 
 [node name="Tree_Minigame" type="Node2D"]
-script = ExtResource("1_phyvm")
+script = ExtResource("1_x3wxg")
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource("1_8y2xt")
+script = ExtResource("2_7ac4b")
 
 [node name="Gura" type="Sprite2D" parent="GameManager"]
-texture = ExtResource("8_3duro")
-
-[node name="LevelSwitchTrigger" parent="GameManager" instance=ExtResource("4_rbejr")]
+texture = ExtResource("3_k3cvd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -43)
 zoom = Vector2(4.36, 4.36)
 
-[node name="hipek_tree" parent="." instance=ExtResource("1_b8gsj")]
+[node name="hipek_tree" parent="." instance=ExtResource("4_ubrqf")]
 z_index = 1
 position = Vector2(-19, 3)
-script = ExtResource("2_aefw4")
+script = ExtResource("5_p85ir")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+/wEAAAADAAEAAAD//wEAAAADAAEAAAAAAAEAAAADAAEAAAABAAEAAAADAAEAAAACAAEAAAADAAEAAAADAAEAAAADAAEAAAD9/wEAAAADAAEAAAD8/wEAAAADAAEAAAD8/wIAAAADAAIAAAD9/wIAAAADAAIAAAD+/wIAAAADAAIAAAD//wIAAAADAAIAAAAAAAIAAAADAAIAAAABAAIAAAADAAIAAAACAAIAAAADAAIAAAADAAIAAAADAAIAAAADAAMAAAADAAIAAAACAAMAAAADAAIAAAABAAMAAAADAAIAAAAAAAMAAAADAAIAAAD//wMAAAADAAIAAAD+/wMAAAADAAIAAAD9/wMAAAADAAIAAAD8/wMAAAADAAIAAAD8/wQAAAADAAIAAAD9/wQAAAADAAIAAAD+/wQAAAADAAIAAAD//wQAAAADAAIAAAAAAAQAAAADAAIAAAACAAQAAAADAAIAAAADAAQAAAADAAIAAAABAAQAAAADAAIAAAD6/wEAAAADAAEAAAAGAAEAAAADAAEAAAD6/wIAAAADAAIAAAD7/wIAAAADAAIAAAAEAAIAAAADAAIAAAAFAAIAAAADAAIAAAAGAAIAAAADAAIAAAAGAAMAAAADAAIAAAAFAAMAAAADAAIAAAAEAAMAAAADAAIAAAD7/wMAAAADAAIAAAD6/wMAAAADAAIAAAD6/wQAAAADAAIAAAD7/wQAAAADAAIAAAAGAAQAAAADAAIAAAAFAAQAAAADAAIAAAAEAAQAAAADAAIAAAD7/wEAAAADAAEAAAAEAAEAAAADAAEAAAAFAAEAAAADAAEAAAD4/wEAAAACAAEAAAAHAAEAAAAEAAEAAAD5/wEAAAADAAEAAAD5/wIAAAADAAIAAAD4/wIAAAADAAIAAAD4/wMAAAADAAIAAAD4/wQAAAADAAIAAAD5/wQAAAADAAIAAAD5/wMAAAADAAIAAAAHAAIAAAADAAIAAAAHAAMAAAADAAIAAAAHAAQAAAADAAIAAAD4/wAAAQAEAAEAAAD5/wAAAQAEAAEAAAD6/wAAAQAEAAEAAAD7/wAAAQAEAAEAAAD8/wAAAQAEAAEAAAD9/wAAAQAEAAEAAAD+/wAAAQAEAAEAAAD//wAAAQAEAAEAAAAAAAAAAQAEAAEAAAABAAAAAQAEAAEAAAACAAAAAQAEAAEAAAADAAAAAQAEAAEAAAAEAAAAAQAEAAEAAAAFAAAAAQAEAAEAAAAGAAAAAQAEAAEAAAAHAAAAAQAEAAEAAAAHAP//AQAEAAEAAAAGAP//AQAEAAEAAAAFAP//AQAEAAEAAAAEAP//AQAEAAEAAAADAP//AQAEAAEAAAACAP//AQAEAAEAAAABAP//AQAEAAEAAAAAAP//AQAEAAEAAAD/////AQAEAAEAAAD+////AQAEAAEAAAD9////AQAEAAEAAAD8////AQAEAAEAAAD7////AQAEAAEAAAD6////AQAEAAEAAAD5////AQAEAAEAAAD4////AQAEAAEAAAD4//7/AQAEAAEAAAD5//7/AQAEAAEAAAD6//7/AQAEAAEAAAD7//7/AQAEAAEAAAD8//7/AQAEAAEAAAD9//7/AQAEAAEAAAD+//7/AQAEAAEAAAD///7/AQAEAAEAAAAAAP7/AQAEAAEAAAABAP7/AQAEAAEAAAACAP7/AQAEAAEAAAADAP7/AQAEAAEAAAAEAP7/AQAEAAEAAAAFAP7/AQAEAAEAAAAGAP7/AQAEAAEAAAAHAP7/AQAEAAEAAAAHAP3/AQAEAAEAAAAGAP3/AQAEAAEAAAAFAP3/AQAEAAEAAAAEAP3/AQAEAAEAAAADAP3/AQAEAAEAAAACAP3/AQAEAAEAAAABAP3/AQAEAAEAAAAAAP3/AQAEAAEAAAD///3/AQAEAAEAAAD+//3/AQAEAAEAAAD9//3/AQAEAAEAAAD8//3/AQAEAAEAAAD7//3/AQAEAAEAAAD6//3/AQAEAAEAAAD5//3/AQAEAAEAAAD4//3/AQAEAAEAAAD4//z/AQAEAAEAAAD5//z/AQAEAAEAAAD6//z/AQAEAAEAAAD7//z/AQAEAAEAAAD8//z/AQAEAAEAAAD9//z/AQAEAAEAAAD+//z/AQAEAAEAAAD///z/AQAEAAEAAAAAAPz/AQAEAAEAAAABAPz/AQAEAAEAAAACAPz/AQAEAAEAAAADAPz/AQAEAAEAAAAEAPz/AQAEAAEAAAAFAPz/AQAEAAEAAAAGAPz/AQAEAAEAAAAHAPz/AQAEAAEAAAAHAPv/AQAEAAEAAAAGAPv/AQAEAAEAAAAFAPv/AQAEAAEAAAAEAPv/AQAEAAEAAAADAPv/AQAEAAEAAAACAPv/AQAEAAEAAAABAPv/AQAEAAEAAAAAAPv/AQAEAAEAAAD///v/AQAEAAEAAAD+//v/AQAEAAEAAAD9//v/AQAEAAEAAAD8//v/AQAEAAEAAAD7//v/AQAEAAEAAAD6//v/AQAEAAEAAAD5//v/AQAEAAEAAAD4//v/AQAEAAEAAAD4//r/AQAEAAEAAAD5//r/AQAEAAEAAAD6//r/AQAEAAEAAAD7//r/AQAEAAEAAAD8//r/AQAEAAEAAAD9//r/AQAEAAEAAAD+//r/AQAEAAEAAAD///r/AQAEAAEAAAAAAPr/AQAEAAEAAAABAPr/AQAEAAEAAAACAPr/AQAEAAEAAAADAPr/AQAEAAEAAAAEAPr/AQAEAAEAAAAFAPr/AQAEAAEAAAAGAPr/AQAEAAEAAAAHAPr/AQAEAAEAAAAHAPn/AQAEAAEAAAAGAPn/AQAEAAEAAAAFAPn/AQAEAAEAAAAEAPn/AQAEAAEAAAADAPn/AQAEAAEAAAACAPn/AQAEAAEAAAABAPn/AQAEAAEAAAAAAPn/AQAEAAEAAAD///n/AQAEAAEAAAD+//n/AQAEAAEAAAD9//n/AQAEAAEAAAD8//n/AQAEAAEAAAD7//n/AQAEAAEAAAD6//n/AQAEAAEAAAD5//n/AQAEAAEAAAD4//n/AQAEAAEAAAD4//j/AQAEAAEAAAD5//j/AQAEAAEAAAD6//j/AQAEAAEAAAD7//j/AQAEAAEAAAD8//j/AQAEAAEAAAD9//j/AQAEAAEAAAD+//j/AQAEAAEAAAD///j/AQAEAAEAAAAAAPj/AQAEAAEAAAABAPj/AQAEAAEAAAACAPj/AQAEAAEAAAADAPj/AQAEAAEAAAAEAPj/AQAEAAEAAAAFAPj/AQAEAAEAAAAGAPj/AQAEAAEAAAAHAPj/AQAEAAEAAAAIAPj/AQAEAAEAAAAIAPn/AQAEAAEAAAAIAPr/AQAEAAEAAAAIAPv/AQAEAAEAAAAIAPz/AQAEAAEAAAAIAP3/AQAEAAEAAAAIAP7/AQAEAAEAAAAIAP//AQAEAAEAAAAIAAAAAQAEAAEAAAD3//j/AQAEAAEAAAD3//n/AQAEAAEAAAD3//r/AQAEAAEAAAD3//v/AQAEAAEAAAD3//z/AQAEAAEAAAD3//3/AQAEAAEAAAD3//7/AQAEAAEAAAD3////AQAEAAEAAAD3/wAAAQAEAAEAAAD3/wEAAQAEAAEAAAAIAAEAAQAEAAEAAAA=")
@@ -109,8 +106,8 @@ tile_set = SubResource("TileSet_ej166")
 
 [node name="Korzen" type="Sprite2D" parent="."]
 position = Vector2(0, 24)
-texture = ExtResource("7_645da")
+texture = ExtResource("9_eb225")
 
 [node name="Koda" type="Sprite2D" parent="."]
 position = Vector2(0, 8)
-texture = ExtResource("9_b7e6h")
+texture = ExtResource("10_63vvw")

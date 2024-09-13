@@ -31,7 +31,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if enabled:
 		if current == height:
-			finish(score)	
+			finish(score)
 		if Input.is_action_just_pressed("rmb"):
 			if !tree[current].flip_h:
 				print("good")
@@ -59,4 +59,4 @@ func _process(delta: float) -> void:
 
 func finish(score: int) -> void:
 	enabled = false
-	$LevelSwitchTrigger.init_level_change()
+	SignalBus.level_change.emit("beach")
