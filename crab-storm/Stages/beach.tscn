@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://ihk6hcpo1kpp"]
+[gd_scene load_steps=13 format=4 uid="uid://ihk6hcpo1kpp"]
 
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="1_13heb"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="1_uhsh8"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="2_0djxw"]
 [ext_resource type="PackedScene" uid="uid://d0yjnehn4wagh" path="res://Entities/Enemies/Crab/crab.tscn" id="3_bkl0m"]
 [ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="4_xk8pd"]
+[ext_resource type="Texture2D" uid="uid://dbdufnpr4gqka" path="res://Assets/Tilesets/dzewo.png" id="6_qf4cg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2rlt"]
 texture = ExtResource("2_0djxw")
@@ -93,6 +94,18 @@ texture = ExtResource("1_13heb")
 [sub_resource type="TileSet" id="TileSet_gvx6m"]
 sources/1 = SubResource("TileSetAtlasSource_plh6k")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cgcrm"]
+texture = ExtResource("6_qf4cg")
+0:0/size_in_atlas = Vector2i(3, 5)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 24)
+0:0/0/y_sort_origin = 2
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1.375, 8, 1.375, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_1j1gx"]
+physics_layer_0/collision_layer = 3
+sources/0 = SubResource("TileSetAtlasSource_cgcrm")
+
 [node name="Beach" type="Node2D"]
 y_sort_enabled = true
 
@@ -124,3 +137,8 @@ zoom = Vector2(4, 4)
 
 [node name="Rock" parent="." instance=ExtResource("4_xk8pd")]
 position = Vector2(25, 46)
+
+[node name="MinigameIndicators" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAGAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_1j1gx")
