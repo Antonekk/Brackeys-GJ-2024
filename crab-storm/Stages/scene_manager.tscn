@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwlwmxrgbomrm"]
+[gd_scene load_steps=7 format=3 uid="uid://lwx4dshxo3im"]
 
 [ext_resource type="PackedScene" uid="uid://ihk6hcpo1kpp" path="res://Stages/beach.tscn" id="1_4m02d"]
 [ext_resource type="Script" path="res://Assets/Scripts/scene_manager.gd" id="1_xx0ro"]
