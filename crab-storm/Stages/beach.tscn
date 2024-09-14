@@ -161,6 +161,7 @@ texture_progress = ExtResource("9_51q2n")
 script = ExtResource("8_0kngb")
 player = NodePath("../../Player")
 
+[connection signal="player_position" from="Player" to="." method="_on_player_player_position"]
 [node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
 anchors_preset = 2
 anchor_top = 1.0

@@ -14,7 +14,7 @@ func handle_level_change(next):
 		"TreeMinigame":
 			next_level = load("res://Stages/Minigames/Drzewo/tree_minigame.tscn")
 		"beach":
-			next_level = load("res://Stages/beach.tscn")
+			next_level = ResourceLoader.load("res://Stages/Saved.tscn")
 		"fishing":
 			next_level = load("res://Stages/Minigames/Fish/fishing_minigame.tscn")
 		_:
