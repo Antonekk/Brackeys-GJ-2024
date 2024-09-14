@@ -135,13 +135,16 @@ position = Vector2(41, 130)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -69.0
-offset_right = 261.0
+offset_left = 6.0
+offset_top = -2.0
+offset_right = 249.0
+offset_bottom = 61.0
 grow_vertical = 0
+rotation = -1.5708
 nine_patch_stretch = true
 texture_under = ExtResource("8_qkir6")
 texture_progress = ExtResource("9_51q2n")

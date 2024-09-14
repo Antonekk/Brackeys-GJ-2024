@@ -12,7 +12,7 @@ func _ready() -> void:
 func apply_damage(damage : int) -> void:
 	current_health -= damage
 	health_change.emit()
-	if current_health < 0:
+	if current_health <= 0:
 		handle_death()
 		
 		

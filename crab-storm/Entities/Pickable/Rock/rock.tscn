@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwlcf4hsi04da"]
+[gd_scene load_steps=10 format=3 uid="uid://cwlcf4hsi04da"]
 
 [ext_resource type="Texture2D" uid="uid://dsr4wapgbkpkm" path="res://Entities/Pickable/Rock/Art/rock.png" id="1_ovrar"]
 [ext_resource type="PackedScene" uid="uid://dd1t7dg0ltshf" path="res://Common/PickableObject/pickable.tscn" id="1_qd4tl"]
+[ext_resource type="Script" path="res://Common/HitboxSystem/hitbox_component.gd" id="3_1ut4f"]
+[ext_resource type="Script" path="res://Common/HealthSystem/health_system.gd" id="4_lpwit"]
+[ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="5_xxi2h"]
+[ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="6_rh2lg"]
+[ext_resource type="Script" path="res://Common/HealthSystem/Enemy_Health_bar.gd" id="7_m83f7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ids6t"]
 radius = 3.0
 height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4bpvp"]
+radius = 6.15385
+height = 21.5385
 
 [node name="Rock" type="StaticBody2D"]
 scale = Vector2(0.65, 0.65)
@@ -25,3 +34,28 @@ y_sort_enabled = true
 position = Vector2(1, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ids6t")
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 4
+script = ExtResource("3_1ut4f")
+health_component = NodePath("../HealthSystem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(1.53846, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4bpvp")
+
+[node name="HealthSystem" type="Node2D" parent="."]
+script = ExtResource("4_lpwit")
+MAX_HEALTH = 5
+
+[node name="HealthBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("entity_health")]
+offset_left = -6.15385
+offset_top = -10.7692
+offset_right = 7.84615
+offset_bottom = -7.76923
+nine_patch_stretch = true
+texture_under = ExtResource("5_xxi2h")
+texture_progress = ExtResource("6_rh2lg")
+script = ExtResource("7_m83f7")
+entity_health = NodePath("../HealthSystem")
