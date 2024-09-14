@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsfkjgfvhapdk"]
+
+[ext_resource type="Script" path="res://CrabFactory.gd" id="1_5j8xc"]
+
+[node name="CrabFactory" type="Node2D"]
+script = ExtResource("1_5j8xc")
