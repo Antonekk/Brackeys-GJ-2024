@@ -1,8 +1,12 @@
 extends CharacterBody2D
+class_name PlayerController
 
 
+
+@export var health_system : HealthSystem
 const SPEED = 75.0
 const RUN_SPEED = 110.0
+
 
 
 
@@ -132,9 +136,12 @@ func _physics_process(delta: float) -> void:
 	shooting()
 	pickup()
 	movement()
-	
+	# Move the player using the velocity
+	move_and_slide()
+
+func _process(delta: float) -> void:
 	var current_animation = player_sprite.animation
-	if CurrentDodgingState != DodgeState.IS_DODGING:
+	if CurrentDodgingState != DodgeState.IS_DODGING and CurrentAttackState != AttackState.COLLECTING_AMMO:
 		if CurrentMovementState == MovementState.WALKING and current_animation != "walk":
 			player_sprite.play("walk")
 		if CurrentMovementState == MovementState.IDLE and current_animation != "idle":
@@ -143,6 +150,5 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("run")
 	elif CurrentDodgingState == DodgeState.IS_DODGING and current_animation != "dodge":
 		player_sprite.play("dodge")
-	
-	# Move the player using the velocity
-	move_and_slide()
+	if CurrentAttackState == AttackState.COLLECTING_AMMO and current_animation!="ammo_pickup":
+		player_sprite.play("ammo_pickup")

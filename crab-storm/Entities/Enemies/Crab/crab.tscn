@@ -1,23 +1,126 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0yjnehn4wagh"]
+[gd_scene load_steps=18 format=3 uid="uid://d0yjnehn4wagh"]
 
-[ext_resource type="Texture2D" uid="uid://q7rkqiis86ra" path="res://Entities/Enemies/Crab/Art/CrabIdle.png" id="1_406xi"]
 [ext_resource type="Script" path="res://Entities/Enemies/Crab/crab.gd" id="1_ij7ap"]
+[ext_resource type="Texture2D" uid="uid://cm83d7brjijwq" path="res://Entities/Enemies/Crab/Art/crab_walk.png" id="2_h71su"]
+[ext_resource type="PackedScene" uid="uid://dyanknjtg5f6t" path="res://Common/HealthSystem/health_system.tscn" id="3_deufl"]
+[ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="4_ak2kv"]
+[ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="5_yooot"]
+[ext_resource type="Script" path="res://Entities/Enemies/Crab/Crab_Health_bar.gd" id="6_d3lwu"]
+[ext_resource type="PackedScene" uid="uid://d6lcgibpdltu" path="res://Common/HitboxSystem/hitbox_component.tscn" id="7_2pvtk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g47e"]
+atlas = ExtResource("2_h71su")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2y02"]
+atlas = ExtResource("2_h71su")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj31s"]
+atlas = ExtResource("2_h71su")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50kbq"]
+atlas = ExtResource("2_h71su")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sprve"]
+atlas = ExtResource("2_h71su")
+region = Rect2(2560, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88fak"]
+atlas = ExtResource("2_h71su")
+region = Rect2(3200, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tl5a5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g47e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2y02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj31s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50kbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sprve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88fak")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 14.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w1htw"]
 radius = 3.0
 height = 18.0
 
-[node name="Crab" type="CharacterBody2D"]
-collision_layer = 4
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mgchd"]
+radius = 7.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jj5mx"]
+radius = 5.0
+height = 28.0
+
+[node name="Crab" type="CharacterBody2D" node_paths=PackedStringArray("crab_health_system")]
+collision_layer = 16
 collision_mask = 12
 floor_constant_speed = true
 safe_margin = 0.1
 script = ExtResource("1_ij7ap")
+crab_health_system = NodePath("HealthSystem")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_406xi")
+[node name="CrabSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_tl5a5")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.266435
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_w1htw")
+
+[node name="HealthSystem" parent="." instance=ExtResource("3_deufl")]
+position = Vector2(775.386, -193.803)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("crab")]
+offset_left = -6.0
+offset_top = -14.0
+offset_right = 7.0
+offset_bottom = -10.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_ak2kv")
+texture_progress = ExtResource("5_yooot")
+script = ExtResource("6_d3lwu")
+crab = NodePath("..")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_2pvtk")]
+collision_layer = 48
+collision_mask = 38
+health_component = NodePath("../HealthSystem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+rotation = 1.5708
+scale = Vector2(1, 1.2)
+shape = SubResource("CapsuleShape2D_mgchd")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jj5mx")
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
