@@ -33,11 +33,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxnwn"]
-radius = 4.0
+radius = 4.86957
 height = 16.0
 
 [node name="Ryba" type="AnimatedSprite2D"]
 z_index = 1
+position = Vector2(2.38419e-07, -2.38419e-07)
+scale = Vector2(1.4375, 1.4375)
 sprite_frames = SubResource("SpriteFrames_mgbei")
 animation = &"ryb1"
 script = ExtResource("4_0by6w")

@@ -15,6 +15,8 @@ func handle_level_change(next):
 			next_level = load("res://Stages/Minigames/Drzewo/tree_minigame.tscn")
 		"beach":
 			next_level = load("res://Stages/beach.tscn")
+		"fishing":
+			next_level = load("res://Stages/Minigames/Fish/fishing_minigame.tscn")
 		_:
 			return
 	next_level = next_level.instantiate()

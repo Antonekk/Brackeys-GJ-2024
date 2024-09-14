@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://4sgtr7n8pcqd"]
+[gd_scene load_steps=5 format=4 uid="uid://4sgtr7n8pcqd"]
 
 [ext_resource type="Script" path="res://Stages/Minigames/Fish/game_manager.gd" id="1_3lb56"]
-[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_7onlx"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="1_y01p7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5vlr"]
@@ -48,7 +47,6 @@ texture = ExtResource("1_y01p7")
 sources/0 = SubResource("TileSetAtlasSource_q5vlr")
 
 [node name="FishingMinigame" type="Node2D"]
-script = ExtResource("1_7onlx")
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_3lb56")
