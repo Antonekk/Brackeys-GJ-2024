@@ -21,7 +21,7 @@ animations = [{
 }]
 
 [node name="Projectile" type="RigidBody2D"]
-collision_layer = 0
+collision_layer = 8
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-var Path : Array = [Vector2(0,0), Vector2(0,-50), Vector2(-50,-50)]
-var SPEED = 10
+var crab_path : Path = load("res://Entities/Paths/Path2.tres")
+var SPEED = 20
 
 func get_to_point(point_position : Vector2) -> Vector2:
 	var move_vector : Vector2 = ( point_position - global_position).normalized()
@@ -11,10 +11,9 @@ func get_to_point(point_position : Vector2) -> Vector2:
 
 
 func _physics_process(delta: float) -> void:
-	if Path.size() > 0:
-		move_and_collide(get_to_point(Path[0]) * delta)
-		if (global_position - Path[0]).length() < 1:
-			print("POINT")
-			Path.pop_front()
+	if crab_path.points.size() > 0:
+		move_and_collide(get_to_point(crab_path.get_point_world_pos(crab_path.points[0])) * delta)
+		if (global_position - crab_path.get_point_world_pos(crab_path.points[0])).length() < 1:
+			crab_path.points.pop_front()
 		
 	
