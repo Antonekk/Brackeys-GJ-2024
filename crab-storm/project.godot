@@ -23,6 +23,10 @@ SignalBus="*res://Assets/Scripts/SignalBus.gd"
 
 project/assembly_name="Crab Storm"
 
+[global_group]
+
+player=""
+
 [input]
 
 Move_Up={

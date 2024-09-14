@@ -3,15 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://q7rkqiis86ra" path="res://Entities/Enemies/Crab/Art/CrabIdle.png" id="1_406xi"]
 [ext_resource type="Script" path="res://Entities/Enemies/Crab/crab.gd" id="1_ij7ap"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w1htw"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cyuio"]
 radius = 3.0
 height = 18.0
 
-[node name="Crab" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 12
-floor_constant_speed = true
-safe_margin = 0.1
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_ij7ap")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
@@ -20,4 +17,4 @@ texture = ExtResource("1_406xi")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_w1htw")
+shape = SubResource("CapsuleShape2D_cyuio")
