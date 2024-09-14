@@ -1,24 +1,23 @@
 [gd_scene load_steps=21 format=4 uid="uid://ihk6hcpo1kpp"]
 
-[ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="1_13heb"]
-[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_k3cl8"]
-[ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="1_uhsh8"]
-[ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="2_0djxw"]
-[ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="2_bw42h"]
-
-[ext_resource type="Texture2D" uid="uid://7x0h0otug2a5" path="res://Utils/Shaders/rain.png" id="3_jumh0"]
-[ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="4_xk8pd"]
-[ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="7_uuet0"]
-[ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="8_0kngb"]
-[ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="8_qkir6"]
-[ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="9_51q2n"]
-[ext_resource type="Shader" path="res://Utils/Shaders/rain.gdshader" id="12_82kxn"]
-[ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="12_w3ooc"]
-[ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_d2aw3"]
-[ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="14_fg5rl"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_oy0ff"]
+[ext_resource type="Shader" path="res://Utils/Shaders/rain.gdshader" id="2_dccqw"]
+[ext_resource type="Texture2D" uid="uid://7x0h0otug2a5" path="res://Utils/Shaders/rain.png" id="3_xxdo6"]
+[ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="4_5et4l"]
+[ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="5_jopgj"]
+[ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="6_dnjwo"]
+[ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="7_3jigt"]
+[ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="8_v2xjv"]
+[ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="9_76pup"]
+[ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="10_olr2s"]
+[ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="11_twtvm"]
+[ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="12_ya06f"]
+[ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_a7shs"]
+[ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="14_0sw50"]
+[ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78bq4"]
-shader = ExtResource("12_82kxn")
+shader = ExtResource("2_dccqw")
 shader_parameter/count = 500
 shader_parameter/slant = 0.225
 shader_parameter/speed = 50.0
@@ -27,7 +26,7 @@ shader_parameter/colour = Color(1.92523e-07, 0.496924, 0.784888, 1)
 shader_parameter/size = Vector2(0.01, 0.2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plh6k"]
-texture = ExtResource("1_13heb")
+texture = ExtResource("8_v2xjv")
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1.5, 8, 1.75, 8, -8, -8, -8)
@@ -91,7 +90,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_plh6k")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2rlt"]
-texture = ExtResource("2_0djxw")
+texture = ExtResource("9_76pup")
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/y_sort_origin = 3
@@ -125,7 +124,7 @@ sources/1 = SubResource("TileSetAtlasSource_q2rlt")
 
 [node name="BeachRave" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_k3cl8")
+script = ExtResource("1_oy0ff")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -145,7 +144,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(28.84, 16.04)
-texture = ExtResource("3_jumh0")
+texture = ExtResource("3_xxdo6")
 stretch_mode = 1
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
@@ -159,12 +158,12 @@ offset_bottom = 61.0
 grow_vertical = 0
 rotation = -1.5708
 nine_patch_stretch = true
-texture_under = ExtResource("8_qkir6")
-texture_progress = ExtResource("9_51q2n")
-script = ExtResource("8_0kngb")
+texture_under = ExtResource("4_5et4l")
+texture_progress = ExtResource("5_jopgj")
+script = ExtResource("6_dnjwo")
 player = NodePath("../../Player")
 
-[node name="CrabFactory" parent="." instance=ExtResource("2_bw42h")]
+[node name="CrabFactory" parent="." instance=ExtResource("7_3jigt")]
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -179,26 +178,26 @@ tile_map_data = PackedByteArray("AAAEAAUAAQABAAEAAAAJAAMAAQAIAAEAAADz/wEAAQAJAAE
 tile_set = SubResource("TileSet_b28sw")
 use_kinematic_bodies = true
 
-[node name="Player" parent="." instance=ExtResource("1_uhsh8")]
+[node name="Player" parent="." instance=ExtResource("10_olr2s")]
 position = Vector2(-97, 40)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(1e-05, 1e-05)
 zoom = Vector2(5, 5)
 
-[node name="Rock" parent="." instance=ExtResource("4_xk8pd")]
+[node name="Rock" parent="." instance=ExtResource("11_twtvm")]
 position = Vector2(31, 45)
 
-[node name="FishStation" parent="." instance=ExtResource("12_w3ooc")]
+[node name="FishStation" parent="." instance=ExtResource("12_ya06f")]
 position = Vector2(743, 54)
 
-[node name="StoneStation" parent="." instance=ExtResource("13_d2aw3")]
+[node name="StoneStation" parent="." instance=ExtResource("13_a7shs")]
 position = Vector2(816, 54)
 
-[node name="WoodStation" parent="." instance=ExtResource("14_fg5rl")]
+[node name="WoodStation" parent="." instance=ExtResource("14_0sw50")]
 position = Vector2(897, 54)
 
-[node name="Castle" parent="." instance=ExtResource("7_uuet0")]
+[node name="Castle" parent="." instance=ExtResource("15_crh1r")]
 position = Vector2(-105, 216)
 
 [node name="CrabRaveManager" type="Node2D" parent="."]
