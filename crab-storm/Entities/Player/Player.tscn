@@ -515,7 +515,7 @@ height = 20.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_system") groups=["player"]]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_c2po7")
 health_system = NodePath("HealthSystem")
 
