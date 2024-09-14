@@ -5,13 +5,18 @@ class_name CrabController
 
 @export var crab_health_system : HealthSystem
 @onready var crab_sprite: AnimatedSprite2D = $CrabSprite
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var crab_path : Path = load("res://Entities/Paths/Path2.tres")
+
+var crab_path_to_load : String
+var crab_path : Path
 var SPEED = 20
 
 const DAMAGE : int = 1
 
 func _ready() -> void:
+	crab_path = load(crab_path_to_load)
+	crab_health_system.handle_death.connect(play_death_animation)
 	crab_health_system.health_change.connect(play_hurt_animation)
 
 
@@ -40,7 +45,9 @@ func _process(delta: float) -> void:
 	if !crab_sprite.is_playing():
 		crab_sprite.play("walk")
 
-
+func play_death_animation() -> void:
+	animation_player.play("Death")
+	
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area is HitboxComponent:
 		crab_sprite.play("attack")
