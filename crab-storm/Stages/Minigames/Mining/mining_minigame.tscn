@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=4 uid="uid://dfmua1tkgnr6v"]
 
-[ext_resource type="PackedScene" uid="uid://cdvpmeih43uka" path="res://Stages/Minigames/rock.tscn" id="1_i0k2t"]
+[ext_resource type="PackedScene" uid="uid://cdvpmeih43uka" path="res://Stages/Minigames/Mining/rock.tscn" id="1_i0k2t"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_n41ic"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="2_nw3dy"]
 [ext_resource type="Texture2D" uid="uid://vxxdmd3jmkm6" path="res://Stages/Minigames/Mining/kilofmach-Sheet.png" id="4_mq4mm"]
-[ext_resource type="Script" path="res://Stages/Minigames/kilof.gd" id="4_xwvif"]
+[ext_resource type="Script" path="res://Stages/Minigames/Mining/kilof.gd" id="4_xwvif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgyaf"]
 texture = ExtResource("2_nw3dy")

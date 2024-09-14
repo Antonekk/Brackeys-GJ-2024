@@ -37,7 +37,7 @@ func Click(fish):
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("lmb") and !fish_clicked:
 		scene.parameteres["fish"] += points
-		SignalBus.level_change.emit("beach")
+		SignalBus.level_change.emit("beach_res")
 		enabled = false
 	fish_clicked = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.

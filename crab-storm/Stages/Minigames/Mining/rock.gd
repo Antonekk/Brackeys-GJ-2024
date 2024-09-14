@@ -26,4 +26,4 @@ func _physics_process(delta: float) -> void:
 			anim.stop()
 			anim.play("0%")
 			get_parent().parameteres["rock"] += 6
-			SignalBus.level_change.emit("beach")
+			SignalBus.level_change.emit("beach_res")

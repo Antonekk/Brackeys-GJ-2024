@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdvpmeih43uka"]
 
-[ext_resource type="Texture2D" uid="uid://du6n1d5hhyrve" path="res://Stages/Minigames/rockendstoln-Sheet.png" id="1_fiwt8"]
-[ext_resource type="Script" path="res://Stages/Minigames/rock.gd" id="1_n7hg0"]
+[ext_resource type="Texture2D" uid="uid://du6n1d5hhyrve" path="res://Stages/Minigames/Mining/rockendstoln-Sheet.png" id="1_fiwt8"]
+[ext_resource type="Script" path="res://Stages/Minigames/Mining/rock.gd" id="1_n7hg0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpkku"]
 atlas = ExtResource("1_fiwt8")

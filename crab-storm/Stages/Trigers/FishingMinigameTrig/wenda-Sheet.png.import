@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rxjj6s7l81o8"
-path="res://.godot/imported/fishrod.png-3b3fb0e5cc969cbbac504af4bdd4e91d.ctex"
+uid="uid://c14cy4td3siku"
+path="res://.godot/imported/wenda-Sheet.png-ef245cea91f8f7ca764b060e1e40d639.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stages/Trigers/FishingMinigameTrig/fishrod.png"
-dest_files=["res://.godot/imported/fishrod.png-3b3fb0e5cc969cbbac504af4bdd4e91d.ctex"]
+source_file="res://Stages/Trigers/FishingMinigameTrig/wenda-Sheet.png"
+dest_files=["res://.godot/imported/wenda-Sheet.png-ef245cea91f8f7ca764b060e1e40d639.ctex"]
 
 [params]
 
