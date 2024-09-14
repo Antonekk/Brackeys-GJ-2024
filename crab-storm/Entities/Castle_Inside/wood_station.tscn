@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpnmfyxgrm15u"]
+
+[ext_resource type="Texture2D" uid="uid://dhhab64pj5yyp" path="res://Entities/Castle_Inside/stacjadrewno.png" id="1_ach25"]
+
+[node name="WoodStation" type="Sprite2D"]
+texture = ExtResource("1_ach25")

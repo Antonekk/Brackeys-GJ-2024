@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bip801fnwltua"]
+
+[ext_resource type="Texture2D" uid="uid://d2ird84jj2lka" path="res://Entities/Castle_Inside/stacjaryby.png" id="1_4un1h"]
+
+[node name="FishStation" type="Sprite2D"]
+texture = ExtResource("1_4un1h")

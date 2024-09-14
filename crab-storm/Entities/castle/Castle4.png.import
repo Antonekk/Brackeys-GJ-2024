@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx3k02pdua62h"
-path="res://.godot/imported/zamek.png-c1fc8ece794379a44b79ff828b4c7979.ctex"
+uid="uid://v0h7ut4yo81"
+path="res://.godot/imported/Castle4.png-ff28b61acb5fb70acbd9e6a624506616.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/castle/zamek.png"
-dest_files=["res://.godot/imported/zamek.png-c1fc8ece794379a44b79ff828b4c7979.ctex"]
+source_file="res://Entities/castle/Castle4.png"
+dest_files=["res://.godot/imported/Castle4.png-ff28b61acb5fb70acbd9e6a624506616.ctex"]
 
 [params]
 

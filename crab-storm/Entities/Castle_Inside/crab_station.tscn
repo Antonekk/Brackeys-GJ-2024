@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0xj60cbkl2ti"]
+
+[ext_resource type="Texture2D" uid="uid://7ty6ygnde6fb" path="res://Entities/Castle_Inside/krabystacja.png" id="1_g4ay3"]
+
+[node name="CrabStation" type="Sprite2D"]
+texture = ExtResource("1_g4ay3")
