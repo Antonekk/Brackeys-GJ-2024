@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 
 var rng = RandomNumberGenerator.new()
+signal ryba_clicked
 
 @export var points: Array[Vector2]
 
@@ -19,3 +20,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("lmb"):
+		ryba_clicked.emit()
+		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wskpqvbn6eq4"]
+[gd_scene load_steps=7 format=3 uid="uid://wskpqvbn6eq4"]
 
 [ext_resource type="Texture2D" uid="uid://bn2agaq33uy7j" path="res://Stages/Minigames/Fish/reybkie.png" id="1_1gkwc"]
 [ext_resource type="Texture2D" uid="uid://ddy5nff3ac6i" path="res://Stages/Minigames/Fish/rybkie2.png" id="2_i1qcs"]
@@ -32,68 +32,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_c3mwi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1ujur"]
-resource_name = "movve"
-length = 5.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(50, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqu22"]
-_data = {
-"RESET": SubResource("Animation_c3mwi"),
-"movve": SubResource("Animation_1ujur")
-}
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxnwn"]
+radius = 4.0
+height = 16.0
 
 [node name="Ryba" type="AnimatedSprite2D"]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_mgbei")
 animation = &"ryb1"
 script = ExtResource("4_0by6w")
+points = Array[Vector2]([Vector2(-130, -60), Vector2(-32, -60), Vector2(45, -60), Vector2(121, -60), Vector2(-130, -23), Vector2(-32, -23), Vector2(45, -23), Vector2(121, -23), Vector2(-130, 23), Vector2(-32, 23), Vector2(45, 23), Vector2(121, 23), Vector2(-130, 61), Vector2(-32, 61), Vector2(45, 61), Vector2(121, 61)])
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_gxnwn")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_aqu22")
-}
-autoplay = "movve"
-speed_scale = 3.0
-
-[node name="Reybkie" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("1_1gkwc")
-
-[node name="Paszczkie" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("3_ia0y5")
-
-[node name="Rybkie2" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_i1qcs")
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
