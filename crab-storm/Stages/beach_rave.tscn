@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://ihk6hcpo1kpp"]
+[gd_scene load_steps=32 format=4 uid="uid://ihk6hcpo1kpp"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_oy0ff"]
 [ext_resource type="Shader" path="res://Utils/Shaders/rain.gdshader" id="2_dccqw"]
@@ -6,15 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="4_5et4l"]
 [ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="5_jopgj"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="6_dnjwo"]
-[ext_resource type="PackedScene" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="7_3jigt"]
+[ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="7_3jigt"]
+[ext_resource type="FontFile" uid="uid://bw01338ngvlwl" path="res://Assets/Fonts/Daydream.ttf" id="7_tmk2c"]
+[ext_resource type="Texture2D" uid="uid://blumq1ho6ul8x" path="res://Entities/Player/Art/roll_icon.png" id="8_534wx"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="8_v2xjv"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="9_76pup"]
+[ext_resource type="Script" path="res://Entities/Player/roll_icon.gd" id="9_fhar0"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="10_olr2s"]
+[ext_resource type="Texture2D" uid="uid://bpfgcg3n0mv04" path="res://Assets/Tilesets/tile_anim.png" id="11_sxi8t"]
 [ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="11_twtvm"]
 [ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="12_ya06f"]
 [ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_a7shs"]
 [ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="14_0sw50"]
-[ext_resource type="PackedScene" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
+[ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
+[ext_resource type="Script" path="res://Stages/CrabRave/crab_rave_manager.gd" id="16_psgng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78bq4"]
 shader = ExtResource("2_dccqw")
@@ -24,6 +29,273 @@ shader_parameter/speed = 50.0
 shader_parameter/blur = 0.002
 shader_parameter/colour = Color(1.92523e-07, 0.496924, 0.784888, 1)
 shader_parameter/size = Vector2(0.01, 0.2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a4ut0"]
+font = ExtResource("7_tmk2c")
+font_size = 24
+font_color = Color(1, 1, 1, 0.905882)
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.854902)
+
+[sub_resource type="Animation" id="Animation_7ie81"]
+resource_name = "rave_is_comming"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["
+Rave is comming", "
+Rave is comming"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(405, -75), Vector2(406, 2), Vector2(406, 2), Vector2(406, 2), Vector2(405, -75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(342, 69), Vector2(342, 69), Vector2(342, 69), Vector2(342, 69), Vector2(342, 69)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2.43333, 3.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0258711, 0.0, -0.0261799, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wgt2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(410, -77)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(342, 69)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+Return to castle"]
+}
+
+[sub_resource type="Animation" id="Animation_b46ju"]
+resource_name = "return_to_castle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["
+Return to castle", "
+Return to castle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(405, -75), Vector2(406, 2), Vector2(406, 2), Vector2(406, 2), Vector2(405, -75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(342, 69), Vector2(342, 69), Vector2(342, 69), Vector2(342, 69), Vector2(342, 69)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2.43333, 3.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0258711, 0.0, -0.0261799, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.53333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_limxt"]
+_data = {
+"RESET": SubResource("Animation_wgt2m"),
+"rave_is_comming": SubResource("Animation_7ie81"),
+"return_to_castle": SubResource("Animation_b46ju")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1d0gf"]
+texture = ExtResource("11_sxi8t")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/next_alternative_id = 2
+4:1/animation_columns = 2
+4:1/animation_separation = Vector2i(1, 0)
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/next_alternative_id = 2
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plh6k"]
 texture = ExtResource("8_v2xjv")
@@ -88,6 +360,7 @@ texture = ExtResource("8_v2xjv")
 [sub_resource type="TileSet" id="TileSet_gvx6m"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_plh6k")
+sources/0 = SubResource("TileSetAtlasSource_1d0gf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2rlt"]
 texture = ExtResource("9_76pup")
@@ -163,6 +436,37 @@ texture_progress = ExtResource("5_jopgj")
 script = ExtResource("6_dnjwo")
 player = NodePath("../../Player")
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_top = -77.0
+offset_right = 203.0
+offset_bottom = -8.0
+grow_horizontal = 2
+text = "
+Return to castle"
+label_settings = SubResource("LabelSettings_a4ut0")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_limxt")
+}
+
+[node name="Roll" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = -46.0
+offset_right = 128.0
+offset_bottom = -6.0
+grow_vertical = 0
+texture = ExtResource("8_534wx")
+script = ExtResource("9_fhar0")
+
 [node name="CrabFactory" parent="." instance=ExtResource("7_3jigt")]
 
 [node name="Ground" type="TileMapLayer" parent="."]
@@ -179,7 +483,7 @@ tile_set = SubResource("TileSet_b28sw")
 use_kinematic_bodies = true
 
 [node name="Player" parent="." instance=ExtResource("10_olr2s")]
-position = Vector2(-97, 40)
+position = Vector2(-102, 178)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(1e-05, 1e-05)
@@ -201,5 +505,6 @@ position = Vector2(897, 54)
 position = Vector2(-105, 216)
 
 [node name="CrabRaveManager" type="Node2D" parent="."]
+script = ExtResource("16_psgng")
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]

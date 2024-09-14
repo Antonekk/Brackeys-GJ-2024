@@ -10,7 +10,7 @@ const RUN_SPEED = 110.0
 
 
 
-const DODGE_SPEED: float = 200.0
+const DODGE_SPEED: float = 300.0
 const DODGE_COOLDOWN: float = 5.0
 const DODGE_TIME: float = 0.2
 var dodge_timer : SceneTreeTimer
@@ -30,6 +30,9 @@ var CurrentMovementState : MovementState = MovementState.IDLE
 
 enum DodgeState {CAN_DODGE, IS_DODGING ,DODGE_ON_COOLDOWN}
 var CurrentDodgingState : DodgeState = DodgeState.CAN_DODGE
+signal dodge_on_cooldown
+signal dodge_is_up
+
 
 enum AttackState {EMPTY_AMMO,COLLECTING_AMMO ,HAS_AMMO}
 var CurrentAttackState : AttackState = AttackState.EMPTY_AMMO
@@ -53,11 +56,13 @@ func handle_dodge_cooldowns() -> void:
 	collision_mask = 0b001
 	CurrentDodgingState = DodgeState.IS_DODGING
 	await get_tree().create_timer(DODGE_TIME).timeout
+	dodge_on_cooldown.emit()
 	print("DODGE ENDED")
 	collision_mask = 0b101
 	CurrentDodgingState = DodgeState.DODGE_ON_COOLDOWN
 	dodge_timer = get_tree().create_timer(DODGE_COOLDOWN)
 	await dodge_timer.timeout
+	dodge_is_up.emit()
 	print("DODGE IS UP")
 	CurrentDodgingState = DodgeState.CAN_DODGE
 	
