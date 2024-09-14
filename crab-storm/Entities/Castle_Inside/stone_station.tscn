@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6bxw15b7ln8b"]
+
+[ext_resource type="Texture2D" uid="uid://c081vpeb2jlna" path="res://Entities/Castle_Inside/stacjakamien.png" id="1_bvkc4"]
+
+[node name="StoneStation" type="Sprite2D"]
+texture = ExtResource("1_bvkc4")

@@ -1,18 +1,21 @@
-[gd_scene load_steps=19 format=4 uid="uid://ihk6hcpo1kpp"]
+[gd_scene load_steps=21 format=4 uid="uid://ihk6hcpo1kpp"]
 
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="1_13heb"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_k3cl8"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="1_uhsh8"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="2_0djxw"]
-[ext_resource type="PackedScene" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="2_bw42h"]
+[ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="2_bw42h"]
+
 [ext_resource type="Texture2D" uid="uid://7x0h0otug2a5" path="res://Utils/Shaders/rain.png" id="3_jumh0"]
 [ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="4_xk8pd"]
+[ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="7_uuet0"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="8_0kngb"]
 [ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="8_qkir6"]
 [ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="9_51q2n"]
 [ext_resource type="Shader" path="res://Utils/Shaders/rain.gdshader" id="12_82kxn"]
-[ext_resource type="Texture2D" uid="uid://cx3k02pdua62h" path="res://Entities/castle/zamek.png" id="12_xaak1"]
-[ext_resource type="Texture2D" uid="uid://bo8twmsdl70ak" path="res://Stages/Trigers/TreeMinigameTrig/dzewoziemia-export.png" id="13_3iwk2"]
+[ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="12_w3ooc"]
+[ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_d2aw3"]
+[ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="14_fg5rl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78bq4"]
 shader = ExtResource("12_82kxn")
@@ -120,7 +123,7 @@ texture = ExtResource("2_0djxw")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_q2rlt")
 
-[node name="Beach" type="Node2D"]
+[node name="BeachRave" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_k3cl8")
 
@@ -186,12 +189,18 @@ zoom = Vector2(5, 5)
 [node name="Rock" parent="." instance=ExtResource("4_xk8pd")]
 position = Vector2(31, 45)
 
-[node name="Zamek" type="Sprite2D" parent="."]
-position = Vector2(-105, 216)
-texture = ExtResource("12_xaak1")
+[node name="FishStation" parent="." instance=ExtResource("12_w3ooc")]
+position = Vector2(743, 54)
 
-[node name="Dzewoziemia-export" type="Sprite2D" parent="."]
-position = Vector2(-21, 169)
-texture = ExtResource("13_3iwk2")
+[node name="StoneStation" parent="." instance=ExtResource("13_d2aw3")]
+position = Vector2(816, 54)
+
+[node name="WoodStation" parent="." instance=ExtResource("14_fg5rl")]
+position = Vector2(897, 54)
+
+[node name="Castle" parent="." instance=ExtResource("7_uuet0")]
+position = Vector2(-105, 216)
+
+[node name="CrabRaveManager" type="Node2D" parent="."]
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]

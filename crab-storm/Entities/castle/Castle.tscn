@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=3 uid="uid://epxhlxbiyyqo"]
+
+[ext_resource type="Texture2D" uid="uid://d30nlal36c1nj" path="res://Entities/castle/Castle1.png" id="1_0rdg7"]
+[ext_resource type="Script" path="res://Entities/castle/castle_change.gd" id="1_38y7i"]
+[ext_resource type="Texture2D" uid="uid://pt6e2q7rtwyp" path="res://Entities/castle/Castle2.png" id="2_68sfk"]
+[ext_resource type="Texture2D" uid="uid://bo0f3bf1k21hq" path="res://Entities/castle/Castle3.png" id="3_u2a1c"]
+[ext_resource type="Texture2D" uid="uid://v0h7ut4yo81" path="res://Entities/castle/Castle4.png" id="4_30e4w"]
+[ext_resource type="Texture2D" uid="uid://tk1ngkw1lt8f" path="res://Entities/castle/flaga1.png" id="6_c7jeh"]
+[ext_resource type="Texture2D" uid="uid://cuey7tyohgqam" path="res://Entities/castle/flaga2.png" id="7_4itty"]
+[ext_resource type="Texture2D" uid="uid://dlk5s57coi0wn" path="res://Entities/castle/flaga3.png" id="8_xfg4e"]
+[ext_resource type="PackedScene" uid="uid://dyanknjtg5f6t" path="res://Common/HealthSystem/health_system.tscn" id="9_kfgqo"]
+[ext_resource type="PackedScene" uid="uid://d6lcgibpdltu" path="res://Common/HitboxSystem/hitbox_component.tscn" id="10_s7at5"]
+[ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="11_qyo8r"]
+[ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="12_tny6e"]
+[ext_resource type="Script" path="res://Common/HealthSystem/Enemy_Health_bar.gd" id="13_tf6g1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ulegu"]
+size = Vector2(76, 42)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6ttm"]
+height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubdh1"]
+size = Vector2(92, 57)
+
+[node name="Castle" type="Node2D" node_paths=PackedStringArray("Castles", "Flags")]
+script = ExtResource("1_38y7i")
+Castles = [NodePath("Castle1"), NodePath("Castle2"), NodePath("Castle3"), NodePath("Castle4")]
+Flags = [NodePath("Flag1"), NodePath("Flag2"), NodePath("Flag3"), NodePath("Flag4")]
+
+[node name="Castle1" type="Sprite2D" parent="."]
+texture = ExtResource("1_0rdg7")
+
+[node name="Castle2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_68sfk")
+
+[node name="Castle3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_u2a1c")
+
+[node name="Castle4" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_30e4w")
+
+[node name="Collider" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ulegu")
+
+[node name="Entry" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_w6ttm")
+
+[node name="Flag1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -35)
+
+[node name="Flag2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -35)
+texture = ExtResource("6_c7jeh")
+
+[node name="Flag3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -35)
+texture = ExtResource("7_4itty")
+
+[node name="Flag4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -35)
+texture = ExtResource("8_xfg4e")
+
+[node name="HealthSystem" parent="." instance=ExtResource("9_kfgqo")]
+MAX_HEALTH = 20
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_s7at5")]
+collision_layer = 64
+collision_mask = 16
+health_component = NodePath("../HealthSystem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_ubdh1")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("entity_health")]
+offset_left = -44.0
+offset_top = 31.0
+offset_right = 45.0
+offset_bottom = 39.0
+nine_patch_stretch = true
+texture_under = ExtResource("11_qyo8r")
+texture_progress = ExtResource("12_tny6e")
+script = ExtResource("13_tf6g1")
+entity_health = NodePath("../HealthSystem")

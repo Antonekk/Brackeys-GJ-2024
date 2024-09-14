@@ -4,7 +4,7 @@ const PATH_LIMIT_NUM : int = 2
 
 var level : int
 var can_spawn = true
-const MAX_CRAB_COUNT : int = 20
+const MAX_CRAB_COUNT : int = 25
 
 const CRAB = preload("res://Entities/Enemies/Crab/crab.tscn")
 

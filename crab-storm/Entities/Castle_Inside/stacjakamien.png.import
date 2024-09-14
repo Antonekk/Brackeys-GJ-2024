@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5o1mg34ltu22"
-path="res://.godot/imported/castle.png-c927f73ad8bad3b730d7304accc464db.ctex"
+uid="uid://c081vpeb2jlna"
+path="res://.godot/imported/stacjakamien.png-eb5348e2676ed2c809aee256d858dad9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/castle/castle.png"
-dest_files=["res://.godot/imported/castle.png-c927f73ad8bad3b730d7304accc464db.ctex"]
+source_file="res://Entities/Castle_Inside/stacjakamien.png"
+dest_files=["res://.godot/imported/stacjakamien.png-eb5348e2676ed2c809aee256d858dad9.ctex"]
 
 [params]
 
