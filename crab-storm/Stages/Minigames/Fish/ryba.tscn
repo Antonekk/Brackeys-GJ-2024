@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://wskpqvbn6eq4"]
+
+[ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="1_xxk4u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgbei"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"ifl",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_1ujur"]
+resource_name = "movve"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(50, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c3mwi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqu22"]
+_data = {
+"RESET": SubResource("Animation_c3mwi"),
+"movve": SubResource("Animation_1ujur")
+}
+
+[node name="Ryba" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_mgbei")
+animation = &"ifl"
+
+[node name="RocksAndBranches" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 13)
+scale = Vector2(0.212703, 0.212703)
+texture = ExtResource("1_xxk4u")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aqu22")
+}
+autoplay = "movve"
+speed_scale = 3.0
