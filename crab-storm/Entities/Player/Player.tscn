@@ -1,10 +1,11 @@
-[gd_scene load_steps=52 format=3 uid="uid://b1t41e7dxhe88"]
+[gd_scene load_steps=54 format=3 uid="uid://b1t41e7dxhe88"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_movement.gd" id="1_c2po7"]
 [ext_resource type="PackedScene" uid="uid://dwvubvgv8gb7q" path="res://Common/PickableObject/picker.tscn" id="2_usxer"]
 [ext_resource type="PackedScene" uid="uid://dyanknjtg5f6t" path="res://Common/HealthSystem/health_system.tscn" id="3_x5xr0"]
 [ext_resource type="Texture2D" uid="uid://cvljsxgty65w5" path="res://Entities/Player/Art/dodge.png" id="4_7w4p2"]
 [ext_resource type="Texture2D" uid="uid://b4i10ry8esirc" path="res://Entities/Player/Art/idle.png" id="4_m7c8l"]
+[ext_resource type="Shader" path="res://Entities/Player/Player.gdshader" id="4_tcf11"]
 [ext_resource type="Texture2D" uid="uid://decodsc4hnu0x" path="res://Entities/Player/Art/pickup.png" id="5_ctkiv"]
 [ext_resource type="Texture2D" uid="uid://iljrh6xnnqyg" path="res://Entities/Player/Art/cwalk.png" id="5_o3qc1"]
 
@@ -33,6 +34,13 @@ func handle_death() -> void:
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1yeyd"]
 radius = 16.0312
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ayxc"]
+shader = ExtResource("4_tcf11")
+shader_parameter/progress = 0.0
+shader_parameter/noise_desnity = 60.0
+shader_parameter/beam_size = 0.01
+shader_parameter/color = Vector4(0, 1.02, 1.2, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipj37"]
 atlas = ExtResource("4_7w4p2")
@@ -403,6 +411,7 @@ position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_1yeyd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2ayxc")
 position = Vector2(1, -11)
 scale = Vector2(0.063, 0.063)
 sprite_frames = SubResource("SpriteFrames_hmwxq")
