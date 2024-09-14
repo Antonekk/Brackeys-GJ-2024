@@ -9,7 +9,7 @@ height = 18.0
 
 [node name="Rock" type="StaticBody2D"]
 scale = Vector2(0.65, 0.65)
-collision_layer = 5
+collision_layer = 4
 
 [node name="RockSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ovrar")
