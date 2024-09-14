@@ -13,7 +13,7 @@ func _ready() -> void:
 	print(parameteres)
 
 func cleanup():
-	if self.name == "Beach":
+	if self.name == "beach_rave":
 		var scene = PackedScene.new()
 		scene.pack(self)
 		ResourceSaver.save(scene, "res://Stages/Saved.tscn")

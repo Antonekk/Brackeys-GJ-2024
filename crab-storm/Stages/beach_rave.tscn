@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="4_5et4l"]
 [ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="5_jopgj"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="6_dnjwo"]
-[ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="7_3jigt"]
+[ext_resource type="PackedScene" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="7_3jigt"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="8_v2xjv"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="9_76pup"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="10_olr2s"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="12_ya06f"]
 [ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_a7shs"]
 [ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="14_0sw50"]
-[ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
+[ext_resource type="PackedScene" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78bq4"]
 shader = ExtResource("2_dccqw")

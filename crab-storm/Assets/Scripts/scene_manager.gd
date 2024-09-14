@@ -1,6 +1,6 @@
 extends Node2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var current_level = $Beach
+@onready var current_level = $beach_rave
 var next_level = null
 
 func _ready() -> void:

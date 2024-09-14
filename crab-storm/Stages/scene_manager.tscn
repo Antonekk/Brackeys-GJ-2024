@@ -84,6 +84,6 @@ libraries = {
 "": SubResource("AnimationLibrary_lpes6")
 }
 
-[node name="Beach" parent="." instance=ExtResource("1_4m02d")]
+[node name="beach_rave" parent="." instance=ExtResource("1_4m02d")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
