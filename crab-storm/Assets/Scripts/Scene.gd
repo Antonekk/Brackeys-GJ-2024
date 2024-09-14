@@ -4,8 +4,11 @@ var parameteres = {
 	"wood": 0,
 	"rock": 0,
 	"fish": 0,
+	"crab": 0,
 	"player_pos": Vector2(10, 10),
-	"time": 0
+	"time": 0,
+	"castle": {"rocklvl": 0, "woodlvl": 0, "fishlvl": 0, "crablvl" : 0},
+	"lvl" : 0
 }
 
 func _ready() -> void:
