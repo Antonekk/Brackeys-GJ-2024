@@ -268,7 +268,7 @@ _data = {
 [node name="Crab" type="CharacterBody2D" node_paths=PackedStringArray("crab_health_system")]
 position = Vector2(0, -5)
 collision_layer = 16
-collision_mask = 12
+collision_mask = 4
 floor_constant_speed = true
 safe_margin = 0.1
 script = ExtResource("1_ij7ap")
@@ -300,7 +300,7 @@ script = ExtResource("6_d3lwu")
 entity_health = NodePath("../HealthSystem")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_2pvtk")]
-collision_layer = 48
+collision_layer = 16
 collision_mask = 38
 health_component = NodePath("../HealthSystem")
 

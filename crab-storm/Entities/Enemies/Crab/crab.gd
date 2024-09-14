@@ -6,7 +6,8 @@ class_name CrabController
 @export var crab_health_system : HealthSystem
 @onready var crab_sprite: AnimatedSprite2D = $CrabSprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+var current_index : int
+var max_index : int
 
 var crab_path_to_load : String
 var crab_path : Path
@@ -16,8 +17,11 @@ const DAMAGE : int = 1
 
 func _ready() -> void:
 	crab_path = load(crab_path_to_load)
+	max_index = crab_path.points.size()
+	current_index = 0
 	crab_health_system.handle_death.connect(play_death_animation)
 	crab_health_system.health_change.connect(play_hurt_animation)
+	
 
 
 func play_hurt_animation() -> void:
@@ -35,10 +39,10 @@ func get_to_point(point_position : Vector2) -> Vector2:
 
 
 func _physics_process(delta: float) -> void:
-	if crab_path.points.size() > 0:
-		move_and_collide(get_to_point(crab_path.get_point_world_pos(crab_path.points[0])) * delta)
-		if (global_position - crab_path.get_point_world_pos(crab_path.points[0])).length() < 1:
-			crab_path.points.pop_front()
+	if current_index != max_index:
+		move_and_collide(get_to_point(crab_path.get_point_world_pos(crab_path.points[current_index])) * delta)
+		if (global_position - crab_path.get_point_world_pos(crab_path.points[current_index])).length() < 1:
+			current_index+=1
 		
 	
 func _process(delta: float) -> void:
