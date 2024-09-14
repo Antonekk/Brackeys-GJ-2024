@@ -12,6 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("yes")
 	if body.is_in_group("player"):
 		SignalBus.level_change.emit("TreeMinigame")

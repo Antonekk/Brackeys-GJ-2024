@@ -1,8 +1,12 @@
 extends CharacterBody2D
+class_name PlayerController
 
 
+
+@export var health_system : HealthSystem
 const SPEED = 75.0
 const RUN_SPEED = 110.0
+
 
 
 
@@ -16,7 +20,7 @@ var Rock_Ammo_Projectile = preload("res://Entities/Projectiles/Rock_Projectile/p
 
 
 
-
+var is_hurt = false
 @onready var picker: Picker = $Picker
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
 
@@ -35,6 +39,9 @@ var dodge_direction:Vector2
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
+func _ready() -> void:
+	health_system.health_change.connect(play_hurt_anim)
 
 # function for handling dodging logic
 func handle_dodge_cooldowns() -> void:
@@ -132,9 +139,15 @@ func _physics_process(delta: float) -> void:
 	shooting()
 	pickup()
 	movement()
-	
+	# Move the player using the velocity
+	move_and_slide()
+
+func _process(delta: float) -> void:
 	var current_animation = player_sprite.animation
-	if CurrentDodgingState != DodgeState.IS_DODGING:
+	if is_hurt:
+		player_sprite.play("hurt")
+		return
+	if CurrentDodgingState != DodgeState.IS_DODGING and CurrentAttackState != AttackState.COLLECTING_AMMO:
 		if CurrentMovementState == MovementState.WALKING and current_animation != "walk":
 			player_sprite.play("walk")
 		if CurrentMovementState == MovementState.IDLE and current_animation != "idle":
@@ -143,6 +156,12 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("run")
 	elif CurrentDodgingState == DodgeState.IS_DODGING and current_animation != "dodge":
 		player_sprite.play("dodge")
-	
-	# Move the player using the velocity
-	move_and_slide()
+	if CurrentAttackState == AttackState.COLLECTING_AMMO and current_animation!="ammo_pickup":
+		player_sprite.play("ammo_pickup")
+
+
+func play_hurt_anim() -> void:
+	is_hurt = true
+	player_sprite.play("hurt")
+	await get_tree().create_timer(0.28).timeout
+	is_hurt = false

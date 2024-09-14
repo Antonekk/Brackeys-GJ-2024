@@ -26,6 +26,7 @@ project/assembly_name="Crab Storm"
 [global_group]
 
 player=""
+damagable=""
 
 [input]
 
@@ -103,6 +104,8 @@ Pickup={
 2d_render/layer_2="Player"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Pickable"
+2d_physics/layer_5="Enemy"
+2d_physics/layer_6="Projectile"
 
 [rendering]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://b1t41e7dxhe88"]
+[gd_scene load_steps=68 format=3 uid="uid://b1t41e7dxhe88"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_movement.gd" id="1_c2po7"]
 [ext_resource type="PackedScene" uid="uid://dwvubvgv8gb7q" path="res://Common/PickableObject/picker.tscn" id="2_usxer"]
@@ -9,11 +9,7 @@
 [ext_resource type="Shader" path="res://Entities/Player/Player.gdshader" id="4_tcf11"]
 [ext_resource type="Texture2D" uid="uid://decodsc4hnu0x" path="res://Entities/Player/Art/pickup.png" id="5_ctkiv"]
 [ext_resource type="Texture2D" uid="uid://iljrh6xnnqyg" path="res://Entities/Player/Art/cwalk.png" id="5_o3qc1"]
-[ext_resource type="Texture2D" uid="uid://ce3irnuium28g" path="res://Entities/Player/Art/hurt.png" id="6_cmrbp"]
 [ext_resource type="PackedScene" uid="uid://d6lcgibpdltu" path="res://Common/HitboxSystem/hitbox_component.tscn" id="9_yg6tf"]
-[ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="11_cyxgs"]
-[ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="12_dewfo"]
-[ext_resource type="Script" path="res://Common/HealthSystem/Enemy_Health_bar.gd" id="13_tguub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vlsm"]
 size = Vector2(11, 10)
@@ -155,34 +151,6 @@ region = Rect2(0, 7200, 400, 400)
 [sub_resource type="AtlasTexture" id="AtlasTexture_scngc"]
 atlas = ExtResource("4_7w4p2")
 region = Rect2(0, 7600, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ne1t"]
-atlas = ExtResource("6_cmrbp")
-region = Rect2(0, 0, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nelc2"]
-atlas = ExtResource("6_cmrbp")
-region = Rect2(0, 400, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lb3an"]
-atlas = ExtResource("6_cmrbp")
-region = Rect2(0, 800, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sormn"]
-atlas = ExtResource("6_cmrbp")
-region = Rect2(0, 1200, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xh888"]
-atlas = ExtResource("6_cmrbp")
-region = Rect2(0, 1600, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgsw4"]
-atlas = ExtResource("6_cmrbp")
-region = Rect2(0, 2000, 400, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qocoe"]
-atlas = ExtResource("6_cmrbp")
-region = Rect2(0, 2400, 400, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqqkg"]
 atlas = ExtResource("4_m7c8l")
@@ -374,32 +342,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ne1t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nelc2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lb3an")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sormn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xh888")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tgsw4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qocoe")
-}],
-"loop": false,
-"name": &"hurt",
-"speed": 25.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_uqqkg")
 }, {
 "duration": 1.0,
@@ -546,8 +488,10 @@ material = SubResource("ShaderMaterial_2ayxc")
 position = Vector2(1, -11)
 scale = Vector2(0.063, 0.063)
 sprite_frames = SubResource("SpriteFrames_hmwxq")
-animation = &"hurt"
+animation = &"ammo_pickup"
 autoplay = "idle"
+frame = 11
+frame_progress = 1.0
 
 [node name="HealthSystem" parent="." instance=ExtResource("3_x5xr0")]
 
@@ -559,14 +503,3 @@ health_component = NodePath("../HealthSystem")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(-1, -10)
 shape = SubResource("CapsuleShape2D_2d32l")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("entity_health")]
-offset_left = -7.0
-offset_top = -26.0
-offset_right = 6.0
-offset_bottom = -22.0
-nine_patch_stretch = true
-texture_under = ExtResource("11_cyxgs")
-texture_progress = ExtResource("12_dewfo")
-script = ExtResource("13_tguub")
-entity_health = NodePath("../HealthSystem")
