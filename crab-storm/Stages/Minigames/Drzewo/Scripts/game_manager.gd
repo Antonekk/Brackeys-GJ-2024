@@ -12,6 +12,7 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	rng.randomize()
 	height = rng.randi_range(5, 7)
 	for i in range(height):
 		var rand = rng.randi_range(0, 1)

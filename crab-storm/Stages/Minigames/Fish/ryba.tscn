@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://wskpqvbn6eq4"]
+
+[ext_resource type="Texture2D" uid="uid://bn2agaq33uy7j" path="res://Stages/Minigames/Fish/reybkie.png" id="1_1gkwc"]
+[ext_resource type="Texture2D" uid="uid://ddy5nff3ac6i" path="res://Stages/Minigames/Fish/rybkie2.png" id="2_i1qcs"]
+[ext_resource type="Texture2D" uid="uid://kpuce0fo262s" path="res://Stages/Minigames/Fish/paszczkie.png" id="3_ia0y5"]
+[ext_resource type="Script" path="res://Stages/Minigames/Fish/ryba.gd" id="4_0by6w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgbei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1gkwc")
+}],
+"loop": true,
+"name": &"ryb1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i1qcs")
+}],
+"loop": true,
+"name": &"ryb2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ia0y5")
+}],
+"loop": true,
+"name": &"ryb3",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxnwn"]
+radius = 4.86957
+height = 16.0
+
+[node name="Ryba" type="AnimatedSprite2D"]
+z_index = 1
+position = Vector2(2.38419e-07, -2.38419e-07)
+scale = Vector2(1.4375, 1.4375)
+sprite_frames = SubResource("SpriteFrames_mgbei")
+animation = &"ryb1"
+script = ExtResource("4_0by6w")
+points = Array[Vector2]([Vector2(-130, -60), Vector2(-32, -60), Vector2(45, -60), Vector2(121, -60), Vector2(-130, -23), Vector2(-32, -23), Vector2(45, -23), Vector2(121, -23), Vector2(-130, 23), Vector2(-32, 23), Vector2(45, 23), Vector2(121, 23), Vector2(-130, 61), Vector2(-32, 61), Vector2(45, 61), Vector2(121, 61)])
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_gxnwn")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
