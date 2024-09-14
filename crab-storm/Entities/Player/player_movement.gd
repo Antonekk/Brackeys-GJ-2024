@@ -13,6 +13,7 @@ const RUN_SPEED = 110.0
 const DODGE_SPEED: float = 200.0
 const DODGE_COOLDOWN: float = 5.0
 const DODGE_TIME: float = 0.2
+var dodge_timer : SceneTreeTimer
 
 const COLLECT_AMMO_TIME: float = 0.5
 const BULLET_SPEED  = 200
@@ -55,7 +56,8 @@ func handle_dodge_cooldowns() -> void:
 	print("DODGE ENDED")
 	collision_mask = 0b101
 	CurrentDodgingState = DodgeState.DODGE_ON_COOLDOWN
-	await get_tree().create_timer(DODGE_COOLDOWN).timeout
+	dodge_timer = get_tree().create_timer(DODGE_COOLDOWN)
+	await dodge_timer.timeout
 	print("DODGE IS UP")
 	CurrentDodgingState = DodgeState.CAN_DODGE
 	
