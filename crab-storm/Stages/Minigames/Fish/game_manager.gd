@@ -6,6 +6,7 @@ var ryba_max
 var points = 0
 var fish_clicked = false
 var enabled = true
+@onready var scene: Node2D = $".."
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,11 +30,13 @@ func Click(fish):
 		points += 1
 		fish_clicked = true
 		if points == ryba_max:
+			scene.parameteres["fish"] += points
 			SignalBus.level_change.emit("beach")
 			print("swap")
 			
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("lmb") and !fish_clicked:
+		scene.parameteres["fish"] += points
 		SignalBus.level_change.emit("beach")
 		enabled = false
 	fish_clicked = false

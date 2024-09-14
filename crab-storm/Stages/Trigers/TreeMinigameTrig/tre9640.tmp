@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://brkhu11trdlbd"]
+
+[ext_resource type="Texture2D" uid="uid://dbdufnpr4gqka" path="res://Assets/Tilesets/dzewo.png" id="1_mehrw"]
+[ext_resource type="Shader" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.gdshader" id="1_s2nts"]
+[ext_resource type="Script" path="res://Stages/Trigers/TreeMinigameTrig/trigger.gd" id="2_f6bqm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22job"]
+shader = ExtResource("1_s2nts")
+shader_parameter/size_effect = 1.0
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 0.3
+shader_parameter/color_mode_toggle = true
+shader_parameter/is_horizontal = false
+shader_parameter/pause_duration = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lfqji"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3j6m"]
+
+[node name="TreeTrigger" type="Sprite2D"]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_22job")
+position = Vector2(47, -1)
+texture = ExtResource("1_mehrw")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_f6bqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-49, -6)
+scale = Vector2(2.64, 2.24)
+shape = SubResource("CircleShape2D_lfqji")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-47, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_w3j6m")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
