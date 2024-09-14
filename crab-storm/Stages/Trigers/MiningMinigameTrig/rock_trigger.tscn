@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b17si64f1vrwk"]
+
+[ext_resource type="Script" path="res://Stages/Trigers/MiningMinigameTrig/rock_trigger.gd" id="1_6mxss"]
+[ext_resource type="Texture2D" uid="uid://du6n1d5hhyrve" path="res://Stages/Minigames/Mining/rockendstoln-Sheet.png" id="1_u2om4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ggpr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dnr43"]
+
+[node name="rock_trigger" type="Sprite2D"]
+texture = ExtResource("1_u2om4")
+region_enabled = true
+region_rect = Rect2(0, 0, 32.0928, 33.6228)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("1_6mxss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 3)
+scale = Vector2(2.64, 2.24)
+shape = SubResource("CircleShape2D_3ggpr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-2, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dnr43")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -58,4 +58,4 @@ func _process(delta: float) -> void:
 func finish(score: int) -> void:
 	enabled = false
 	scene.parameteres["wood"] += score
-	SignalBus.level_change.emit("beach")
+	SignalBus.level_change.emit("beach_res")

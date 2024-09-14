@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://du6n1d5hhyrve"
-path="res://.godot/imported/rockendstoln-Sheet.png-32228fe26cdcaea04acac3da5606a5e5.ctex"
+path="res://.godot/imported/rockendstoln-Sheet.png-4e22122d102d078db74dd7f9fa530a60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Stages/Minigames/rockendstoln-Sheet.png"
-dest_files=["res://.godot/imported/rockendstoln-Sheet.png-32228fe26cdcaea04acac3da5606a5e5.ctex"]
+source_file="res://Stages/Minigames/Mining/rockendstoln-Sheet.png"
+dest_files=["res://.godot/imported/rockendstoln-Sheet.png-4e22122d102d078db74dd7f9fa530a60.ctex"]
 
 [params]
 
