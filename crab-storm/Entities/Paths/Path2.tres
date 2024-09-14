@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_4sx7h")
-points = Array[Vector2]([Vector2(-14, 4), Vector2(-7, 7), Vector2(-7, 10)])
+points = Array[Vector2]([Vector2(-14, 4), Vector2(-7, 7), Vector2(-7, 12)])

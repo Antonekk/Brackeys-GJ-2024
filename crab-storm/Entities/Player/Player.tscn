@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://b1t41e7dxhe88"]
+[gd_scene load_steps=76 format=3 uid="uid://b1t41e7dxhe88"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_movement.gd" id="1_c2po7"]
 [ext_resource type="PackedScene" uid="uid://dwvubvgv8gb7q" path="res://Common/PickableObject/picker.tscn" id="2_usxer"]
@@ -11,9 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://iljrh6xnnqyg" path="res://Entities/Player/Art/cwalk.png" id="5_o3qc1"]
 [ext_resource type="Texture2D" uid="uid://ce3irnuium28g" path="res://Entities/Player/Art/hurt.png" id="6_cmrbp"]
 [ext_resource type="PackedScene" uid="uid://d6lcgibpdltu" path="res://Common/HitboxSystem/hitbox_component.tscn" id="9_yg6tf"]
-[ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="11_cyxgs"]
-[ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="12_dewfo"]
-[ext_resource type="Script" path="res://Common/HealthSystem/Enemy_Health_bar.gd" id="13_tguub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vlsm"]
 size = Vector2(11, 10)
@@ -559,14 +556,3 @@ health_component = NodePath("../HealthSystem")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(-1, -10)
 shape = SubResource("CapsuleShape2D_2d32l")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("entity_health")]
-offset_left = -7.0
-offset_top = -26.0
-offset_right = 6.0
-offset_bottom = -22.0
-nine_patch_stretch = true
-texture_under = ExtResource("11_cyxgs")
-texture_progress = ExtResource("12_dewfo")
-script = ExtResource("13_tguub")
-entity_health = NodePath("../HealthSystem")
