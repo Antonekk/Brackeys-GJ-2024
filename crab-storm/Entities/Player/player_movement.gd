@@ -39,10 +39,14 @@ var CurrentAttackState : AttackState = AttackState.EMPTY_AMMO
 var dodge_direction:Vector2
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+signal player_position(v: Vector2)
 
 func _ready() -> void:
+	SignalBus.player_pos_before.connect(update_player_pos)
 	health_system.health_change.connect(play_hurt_anim)
+
+func update_player_pos(pos):
+	position = pos
 
 # function for handling dodging logic
 func handle_dodge_cooldowns() -> void:
@@ -143,6 +147,7 @@ func _physics_process(delta: float) -> void:
 	movement()
 	# Move the player using the velocity
 	move_and_slide()
+	player_position.emit(position)
 
 func _process(delta: float) -> void:
 	var current_animation = player_sprite.animation

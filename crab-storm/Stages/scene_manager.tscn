@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwlwmxrgbomrm"]
+[gd_scene load_steps=7 format=3 uid="uid://lwx4dshxo3im"]
 
 [ext_resource type="PackedScene" uid="uid://ihk6hcpo1kpp" path="res://Stages/beach.tscn" id="1_4m02d"]
 [ext_resource type="Script" path="res://Assets/Scripts/scene_manager.gd" id="1_xx0ro"]
@@ -69,10 +69,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -508.0
 offset_top = -384.0
-offset_right = -508.0
-offset_bottom = -384.0
+offset_right = -408.0
+offset_bottom = -318.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(32, 32)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2

@@ -3,6 +3,7 @@ extends Node
 const DRZEWO_TEMP = preload("res://Stages/Minigames/Drzewo/Scenes/drzewo_z_gal.tscn")
 @onready var gura: Sprite2D = $Gura
 var enabled: bool = true
+@onready var scene: Node2D = $".."
 
 var tree = []
 var rng = RandomNumberGenerator.new()
@@ -16,7 +17,6 @@ func _ready() -> void:
 	height = rng.randi_range(5, 7)
 	for i in range(height):
 		var rand = rng.randi_range(0, 1)
-		print(i)
 		var block = DRZEWO_TEMP.instantiate()
 		tree.append(block)
 		add_child(block)
@@ -47,10 +47,8 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_pressed("lmb"):
 			if tree[current].flip_h:
 				score += 1
-				print("good")
 			else:
 				finish(score)
-				print("bad")
 			tree[current].queue_free()
 			current += 1
 			for i in range(current, height):
@@ -59,4 +57,5 @@ func _process(delta: float) -> void:
 
 func finish(score: int) -> void:
 	enabled = false
+	scene.parameteres["wood"] += score
 	SignalBus.level_change.emit("beach")

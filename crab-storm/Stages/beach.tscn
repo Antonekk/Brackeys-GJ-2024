@@ -4,8 +4,10 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_k3cl8"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="1_uhsh8"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="2_0djxw"]
+
 [ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="2_bw42h"]
 [ext_resource type="Texture2D" uid="uid://7x0h0otug2a5" path="res://Utils/Shaders/rain.png" id="3_jumh0"]
+
 [ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="4_xk8pd"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="8_0kngb"]
 [ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="8_qkir6"]
@@ -122,7 +124,9 @@ sources/1 = SubResource("TileSetAtlasSource_q2rlt")
 
 [node name="Beach" type="Node2D"]
 y_sort_enabled = true
+
 script = ExtResource("1_k3cl8")
+
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -193,3 +197,6 @@ texture = ExtResource("12_xaak1")
 [node name="Dzewoziemia-export" type="Sprite2D" parent="."]
 position = Vector2(-21, 169)
 texture = ExtResource("13_3iwk2")
+
+[connection signal="player_position" from="Player" to="." method="_on_player_player_position"]
+
