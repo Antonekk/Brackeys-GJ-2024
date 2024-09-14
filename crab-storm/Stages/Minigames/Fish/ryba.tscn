@@ -1,14 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://wskpqvbn6eq4"]
+[gd_scene load_steps=9 format=3 uid="uid://wskpqvbn6eq4"]
 
-[ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="1_xxk4u"]
+[ext_resource type="Texture2D" uid="uid://bn2agaq33uy7j" path="res://Stages/Minigames/Fish/reybkie.png" id="1_1gkwc"]
+[ext_resource type="Texture2D" uid="uid://ddy5nff3ac6i" path="res://Stages/Minigames/Fish/rybkie2.png" id="2_i1qcs"]
+[ext_resource type="Texture2D" uid="uid://kpuce0fo262s" path="res://Stages/Minigames/Fish/paszczkie.png" id="3_ia0y5"]
+[ext_resource type="Script" path="res://Stages/Minigames/Fish/ryba.gd" id="4_0by6w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mgbei"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1gkwc")
+}],
 "loop": true,
-"name": &"ifl",
+"name": &"ryb1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i1qcs")
+}],
+"loop": true,
+"name": &"ryb2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ia0y5")
+}],
+"loop": true,
+"name": &"ryb3",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_c3mwi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_1ujur"]
 resource_name = "movve"
@@ -27,21 +64,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(50, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_c3mwi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aqu22"]
 _data = {
 "RESET": SubResource("Animation_c3mwi"),
@@ -50,12 +72,8 @@ _data = {
 
 [node name="Ryba" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_mgbei")
-animation = &"ifl"
-
-[node name="RocksAndBranches" type="Sprite2D" parent="."]
-position = Vector2(-1.19209e-07, 13)
-scale = Vector2(0.212703, 0.212703)
-texture = ExtResource("1_xxk4u")
+animation = &"ryb1"
+script = ExtResource("4_0by6w")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -67,3 +85,15 @@ libraries = {
 }
 autoplay = "movve"
 speed_scale = 3.0
+
+[node name="Reybkie" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_1gkwc")
+
+[node name="Paszczkie" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_ia0y5")
+
+[node name="Rybkie2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_i1qcs")
