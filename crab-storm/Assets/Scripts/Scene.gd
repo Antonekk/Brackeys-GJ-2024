@@ -2,7 +2,7 @@ extends Node2D
 
 var parameteres = {
 	"wood": 0,
-	"stone": 0,
+	"rock": 0,
 	"fish": 0,
 	"player_pos": Vector2(10, 10),
 	"time": 0
