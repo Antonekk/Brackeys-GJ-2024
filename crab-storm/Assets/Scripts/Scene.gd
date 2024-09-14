@@ -12,7 +12,7 @@ func _ready() -> void:
 	SignalBus.player_pos_before.emit(parameteres["player_pos"])
 	print(parameteres)
 
-func cleanup(obj: Node2D = null):
+func cleanup():
 	if self.name == "Beach":
 		var scene = PackedScene.new()
 		scene.pack(self)

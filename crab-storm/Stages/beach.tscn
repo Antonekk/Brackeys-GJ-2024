@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_k3cl8"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="1_uhsh8"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="2_0djxw"]
-[ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="2_bw42h"]
+[ext_resource type="PackedScene" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="2_bw42h"]
 [ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="4_xk8pd"]
 [ext_resource type="PackedScene" uid="uid://brkhu11trdlbd" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.tscn" id="7_u004r"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="8_0kngb"]
@@ -140,6 +140,9 @@ zoom = Vector2(5, 5)
 [node name="Rock" parent="." instance=ExtResource("4_xk8pd")]
 position = Vector2(31, 45)
 
+[node name="TreeTrigger2" parent="." instance=ExtResource("7_u004r")]
+position = Vector2(82, 260)
+
 [node name="TreeTrigger" parent="." instance=ExtResource("7_u004r")]
 position = Vector2(41, 130)
 
@@ -161,7 +164,6 @@ texture_progress = ExtResource("9_51q2n")
 script = ExtResource("8_0kngb")
 player = NodePath("../../Player")
 
-[connection signal="player_position" from="Player" to="." method="_on_player_player_position"]
 [node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("player")]
 anchors_preset = 2
 anchor_top = 1.0
@@ -181,3 +183,5 @@ player = NodePath("../../Player")
 [node name="Zamek" type="Sprite2D" parent="."]
 position = Vector2(-91, 223)
 texture = ExtResource("12_xaak1")
+
+[connection signal="player_position" from="Player" to="." method="_on_player_player_position"]
