@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dfmua1tkgnr6v"]
+[gd_scene load_steps=16 format=4 uid="uid://dfmua1tkgnr6v"]
 
 [ext_resource type="PackedScene" uid="uid://cdvpmeih43uka" path="res://Stages/Minigames/rock.tscn" id="1_i0k2t"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_n41ic"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="2_nw3dy"]
-[ext_resource type="Texture2D" uid="uid://yeudyvqfwqr1" path="res://Stages/Minigames/Mining/kilof.png" id="4_me3mu"]
+[ext_resource type="Texture2D" uid="uid://vxxdmd3jmkm6" path="res://Stages/Minigames/Mining/kilofmach-Sheet.png" id="4_mq4mm"]
 [ext_resource type="Script" path="res://Stages/Minigames/kilof.gd" id="4_xwvif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgyaf"]
@@ -49,15 +49,61 @@ texture = ExtResource("2_nw3dy")
 [sub_resource type="TileSet" id="TileSet_yuoy8"]
 sources/0 = SubResource("TileSetAtlasSource_hgyaf")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_spvsc"]
+atlas = ExtResource("4_mq4mm")
+region = Rect2(0, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdjud"]
+atlas = ExtResource("4_mq4mm")
+region = Rect2(800, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygjpo"]
+atlas = ExtResource("4_mq4mm")
+region = Rect2(1600, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjosw"]
+atlas = ExtResource("4_mq4mm")
+region = Rect2(2400, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfy46"]
+atlas = ExtResource("4_mq4mm")
+region = Rect2(3200, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkb45"]
+atlas = ExtResource("4_mq4mm")
+region = Rect2(4000, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0opv7"]
+atlas = ExtResource("4_mq4mm")
+region = Rect2(4800, 0, 800, 800)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_seegb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_me3mu")
+"texture": SubResource("AtlasTexture_spvsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdjud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygjpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjosw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfy46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkb45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0opv7")
 }],
-"loop": true,
+"loop": false,
 "name": &"kilof",
-"speed": 5.0
+"speed": 21.0
 }]
 
 [node name="MiningMinigame" type="Node2D"]
@@ -76,9 +122,11 @@ tile_map_data = PackedByteArray("AAD3//v/AAABAAEAAAD4//v/AAABAAEAAAD5//v/AAABAAE
 tile_set = SubResource("TileSet_yuoy8")
 
 [node name="kilof" type="AnimatedSprite2D" parent="."]
-position = Vector2(115, 51)
-scale = Vector2(3.84, 3.84)
+position = Vector2(68, -29)
+scale = Vector2(0.282021, 0.282021)
 sprite_frames = SubResource("SpriteFrames_seegb")
 animation = &"kilof"
+frame = 3
+frame_progress = 1.0
 flip_h = true
 script = ExtResource("4_xwvif")
