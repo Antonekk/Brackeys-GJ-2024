@@ -12,4 +12,4 @@ func start():
 	timer.paused = false
 
 func _process(delta: float) -> void:
-	text = str(timer.time_left)
+	text = str(int(timer.time_left))
