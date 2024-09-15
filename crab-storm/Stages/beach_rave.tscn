@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://ihk6hcpo1kpp"]
+[gd_scene load_steps=31 format=4 uid="uid://ihk6hcpo1kpp"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_oy0ff"]
 [ext_resource type="Shader" path="res://Utils/Shaders/rain.gdshader" id="2_dccqw"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="4_5et4l"]
 [ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="5_jopgj"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="6_dnjwo"]
-[ext_resource type="PackedScene" uid="uid://dsfkjgfvhapdk" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="7_3jigt"]
+[ext_resource type="PackedScene" path="res://Entities/Enemies/Crab/crab_factory.tscn" id="7_3jigt"]
 [ext_resource type="FontFile" uid="uid://bw01338ngvlwl" path="res://Assets/Fonts/Daydream.ttf" id="7_tmk2c"]
 [ext_resource type="Texture2D" uid="uid://blumq1ho6ul8x" path="res://Entities/Player/Art/roll_icon.png" id="8_534wx"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="8_v2xjv"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="12_ya06f"]
 [ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_a7shs"]
 [ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="14_0sw50"]
-[ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
+[ext_resource type="PackedScene" uid="uid://c2qcdo0ewvd1r" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
 [ext_resource type="Script" path="res://Stages/CrabRave/crab_rave_manager.gd" id="16_psgng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78bq4"]
@@ -338,6 +338,9 @@ texture = ExtResource("9_76pup")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_7w2kf")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ifaa4"]
+distance = -0.253776
+
 [node name="BeachRave" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_oy0ff")
@@ -449,6 +452,35 @@ position = Vector2(-105, 216)
 
 [node name="CrabRaveManager" type="Node2D" parent="."]
 script = ExtResource("16_psgng")
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+collision_priority = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-384, 91)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_ifaa4")
+
+[node name="RigidBody2D3" type="StaticBody2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+collision_priority = 6.0
+
+[node name="w" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2(-158, 336)
+shape = SubResource("WorldBoundaryShape2D_ifaa4")
+
+[node name="RigidBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+collision_priority = 7.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(208, 167)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_ifaa4")
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]
 [connection signal="castle_enter" from="CrabRaveManager" to="Castle" method="_on_crab_rave_manager_castle_enter"]
