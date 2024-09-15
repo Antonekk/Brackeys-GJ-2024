@@ -1,13 +1,12 @@
 extends Node2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var current_level = $BeachResource
+@onready var current_level = $Menu
 @onready var rich_text_label: RichTextLabel = $OverlayLayer/RichTextLabel
 
 var next_level = null
 
 func _ready() -> void:
 	SignalBus.level_change.connect(handle_level_change)
-	rich_text_label.get_child(0).start()
 
 func transfer_data(new, old):
 	new.load_level_data(old.parameteres)
@@ -16,7 +15,6 @@ func handle_level_change(next):
 	match next:
 		"beach":
 			next_level = load("res://Stages/beach_resource.tscn")
-			rich_text_label.visible = true
 			rich_text_label.get_child(0).start()
 		"cutting":
 			next_level = load("res://Stages/Minigames/Drzewo/tree_minigame.tscn")
@@ -29,6 +27,8 @@ func handle_level_change(next):
 			next_level = load("res://Stages/Minigames/Fish/fishing_minigame.tscn")
 		"mining":
 			next_level = load("res://Stages/Minigames/Mining/mining_minigame.tscn")
+		"castle":
+			next_level = null # dodaj path
 		_:
 			return
 	next_level = next_level.instantiate()
@@ -45,6 +45,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			anim.play("fade_out")
 		"fade_out":
 			SignalBus.new_scene_loaded.emit()
+			if current_level.name == "beach_resource":
+				rich_text_label.visible = true
 		_:
 			pass
 

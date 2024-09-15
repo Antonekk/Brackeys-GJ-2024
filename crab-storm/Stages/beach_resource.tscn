@@ -112,7 +112,7 @@ texture = ExtResource("8_ic06o")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_q2rlt")
 
-[node name="BeachResource" type="Node2D"]
+[node name="beach_resource" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_muh4b")
 
@@ -174,6 +174,5 @@ position = Vector2(-238, -17)
 
 [node name="rock_trigger" parent="." instance=ExtResource("14_yt02x")]
 position = Vector2(94, 255)
-region_rect = Rect2(0, 0, 32.0928, 33.6228)
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]

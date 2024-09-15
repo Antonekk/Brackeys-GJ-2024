@@ -1,5 +1,4 @@
-extends Node2D
-class_name SceneScript
+extends CanvasLayer
 
 var parameteres = {
 	"wood": 0,
@@ -11,9 +10,6 @@ var parameteres = {
 	"lvl" : 0
 }
 
-func _ready() -> void:
-	print(parameteres)
-
 func cleanup():
 	if self.name == "BeachResource":
 		var scene = PackedScene.new()
@@ -23,3 +19,6 @@ func cleanup():
 
 func load_level_data(new: Dictionary):
 	parameteres = new
+
+func _on_button_pressed() -> void:
+	SignalBus.level_change.emit("beach")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Assets/Scripts/scene_manager.gd" id="1_xx0ro"]
 [ext_resource type="Script" path="res://Stages/timer.gd" id="2_8qulv"]
-[ext_resource type="PackedScene" uid="uid://c0ky81pdvw2ul" path="res://Stages/beach_resource.tscn" id="2_jgr5b"]
 [ext_resource type="FontFile" uid="uid://bw01338ngvlwl" path="res://Assets/Fonts/Daydream.ttf" id="2_tvdjb"]
+[ext_resource type="PackedScene" uid="uid://cq2hv3iq05my6" path="res://Stages/menu.tscn" id="4_5a43q"]
 
 [sub_resource type="Theme" id="Theme_nrmqg"]
 default_font = ExtResource("2_tvdjb")
@@ -84,6 +84,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="OverlayLayer"]
+visible = false
 offset_left = 2.0
 offset_right = 42.0
 offset_bottom = 40.0
@@ -104,8 +105,8 @@ libraries = {
 "": SubResource("AnimationLibrary_lpes6")
 }
 
-[node name="BeachResource" parent="." instance=ExtResource("2_jgr5b")]
-position = Vector2(1, 39)
+[node name="Menu" parent="." instance=ExtResource("4_5a43q")]
+layer = 0
 
 [connection signal="timeout" from="OverlayLayer/RichTextLabel/Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
