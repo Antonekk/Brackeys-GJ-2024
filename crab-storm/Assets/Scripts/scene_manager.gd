@@ -52,4 +52,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_timer_timeout() -> void:
-	SignalBus.level_change.emit("beach_rav")
+	current_level.parameteres["phase"] = 0
+	SignalBus.level_change.emit("castle")
