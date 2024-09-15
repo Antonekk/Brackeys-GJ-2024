@@ -15,6 +15,7 @@ func handle_level_change(next):
 	match next:
 		"beach":
 			next_level = load("res://Stages/beach_resource.tscn")
+			rich_text_label.get_child(0).start()
 		"cutting":
 			next_level = load("res://Stages/Minigames/Drzewo/tree_minigame.tscn")
 		"beach_res":
@@ -46,7 +47,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			SignalBus.new_scene_loaded.emit()
 			if current_level.name == "beach_resource":
 				rich_text_label.visible = true
-				rich_text_label.get_child(0).start()
 		_:
 			pass
 
