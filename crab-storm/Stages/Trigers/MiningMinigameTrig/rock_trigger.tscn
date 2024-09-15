@@ -1,13 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://b17si64f1vrwk"]
+[gd_scene load_steps=7 format=3 uid="uid://b17si64f1vrwk"]
 
 [ext_resource type="Script" path="res://Stages/Trigers/MiningMinigameTrig/rock_trigger.gd" id="1_6mxss"]
 [ext_resource type="Texture2D" uid="uid://du6n1d5hhyrve" path="res://Stages/Minigames/Mining/rockendstoln-Sheet.png" id="1_u2om4"]
+[ext_resource type="Shader" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.gdshader" id="1_w2gfa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0twsn"]
+shader = ExtResource("1_w2gfa")
+shader_parameter/size_effect = 0.1
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+shader_parameter/pause_duration = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ggpr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dnr43"]
 
 [node name="rock_trigger" type="Sprite2D"]
+material = SubResource("ShaderMaterial_0twsn")
 texture = ExtResource("1_u2om4")
 region_enabled = true
 region_rect = Rect2(0, 0, 32.0928, 33.6228)
