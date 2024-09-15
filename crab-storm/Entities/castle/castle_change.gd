@@ -1,7 +1,7 @@
 extends Node2D
 class_name CastleChange
 
-
+var enable = false
 var can_enter : bool
 
 @export var Castles : Array[Node2D]
@@ -13,7 +13,7 @@ var current_castle_lvl : int
 
 var max_flag_lvl : int
 var current_flag_lvl : int
-
+@onready var beach_rave: SceneScript = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +24,8 @@ func _ready() -> void:
 	current_flag_lvl = 0
 	Castles[current_castle_lvl].visible = true
 	Flags[current_flag_lvl].visible = true
+	
+
 
 func change_castle_state(castle_lvl: int, flag_lvl: int):
 	if castle_lvl < max_castle_lvl and flag_lvl < max_flag_lvl:
@@ -35,3 +37,14 @@ func change_castle_state(castle_lvl: int, flag_lvl: int):
 		
 		Castles[current_castle_lvl].visible = true
 		Flags[current_flag_lvl].visible = true
+
+
+func _on_entry_body_entered(body: Node2D) -> void:
+	if enable:
+		beach_rave.parameteres["phase"] = 1
+		beach_rave.parameteres["lvl"] += 1
+		SignalBus.level_change.emit("castle")
+
+
+func _on_crab_rave_manager_castle_enter() -> void:
+	enable = true

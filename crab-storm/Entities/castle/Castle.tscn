@@ -97,3 +97,5 @@ texture_under = ExtResource("11_qyo8r")
 texture_progress = ExtResource("12_tny6e")
 script = ExtResource("13_tf6g1")
 entity_health = NodePath("../HealthSystem")
+
+[connection signal="body_entered" from="Entry" to="." method="_on_entry_body_entered"]
