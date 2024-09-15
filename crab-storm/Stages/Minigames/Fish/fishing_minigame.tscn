@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://4sgtr7n8pcqd"]
+[gd_scene load_steps=9 format=4 uid="uid://4sgtr7n8pcqd"]
 
 [ext_resource type="Script" path="res://Stages/Minigames/Fish/game_manager.gd" id="1_3lb56"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_7onlx"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="1_y01p7"]
 [ext_resource type="Texture2D" uid="uid://67mlrgb2bs7u" path="res://Stages/Minigames/Fish/tajel.png" id="4_uw07t"]
+[ext_resource type="AudioStream" uid="uid://o7pywxbb2gug" path="res://Stages/Minigames/Fish/rybkie1.mp3" id="5_lrd7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5vlr"]
 texture = ExtResource("1_y01p7")
@@ -112,3 +113,7 @@ tile_set = SubResource("TileSet_owurl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4.055, 4.055)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lrd7r")
+volume_db = 24.0
