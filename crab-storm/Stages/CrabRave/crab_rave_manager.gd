@@ -1,5 +1,8 @@
 extends Node2D
 
+
+@onready var player: PlayerController = $"../Player"
+
 var crab_spawn_ended : bool = false
 var has_player_won : bool = false
 @onready var beach_rave: SceneScript = $".."
@@ -8,8 +11,13 @@ var has_player_won : bool = false
 @onready var castle: CastleChange = $"../Castle"
 signal castle_enter()
 
+
+func change_to_endgame():
+	SignalBus.level_change.emit("end_sad")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player.health_system.handle_death.connect(change_to_endgame)
+	castle.health_system.handle_death.connect(change_to_endgame)
 	animation_player.play("rave_is_comming")
 	crab_factory.crab_kill.connect(add_resource_on_crab_kill)
 	crab_factory.has_ended_spawning.connect(set_spawn_ended_flag)

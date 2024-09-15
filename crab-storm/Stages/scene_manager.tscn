@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://lwx4dshxo3im"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/scene_manager.gd" id="1_xx0ro"]
+[ext_resource type="Script" path="res://Stages/End/scene_manager.gd" id="1_xx0ro"]
 [ext_resource type="Script" path="res://Stages/timer.gd" id="2_8qulv"]
 [ext_resource type="FontFile" uid="uid://bw01338ngvlwl" path="res://Assets/Fonts/Daydream.ttf" id="2_tvdjb"]
-[ext_resource type="PackedScene" uid="uid://cq2hv3iq05my6" path="res://Stages/menu.tscn" id="4_5a43q"]
+[ext_resource type="PackedScene" path="res://Stages/menu.tscn" id="4_5a43q"]
 
 [sub_resource type="Theme" id="Theme_nrmqg"]
 default_font = ExtResource("2_tvdjb")

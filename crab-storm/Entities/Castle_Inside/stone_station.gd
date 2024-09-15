@@ -26,7 +26,7 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 			castle_inside.parameteres["castle"]["rocklvl"] += 1
 			change_labels()
 		
-	label.text = "upgrade: bigger castle"
+	label.text = "upgrade: better castle"
 
 
 func _on_interact_area_area_exited(area: Area2D) -> void:

@@ -18,5 +18,4 @@ func apply_damage(damage : int) -> void:
 		
 		
 func death() -> void:
-	print("handle death")
 	handle_death.emit()

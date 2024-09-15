@@ -2,6 +2,7 @@ extends Node2D
 class_name CrabFactory
 
 const PATH_LIMIT_NUM : int = 2
+@onready var beach_rave: SceneScript = $".."
 
 var level : int
 const MAX_CRAB_COUNT : int = 25
@@ -23,8 +24,8 @@ func add_killed_crab() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#crabs_count = min((level * 4) + randi_range(0,level), MAX_CRAB_COUNT)
-	crabs_count = 5
+	level = beach_rave.parameteres["lvl"]
+	crabs_count = min(((level +1) * 4) + randi_range(0,level), MAX_CRAB_COUNT)
 	spawn_crab()
 
 func spawn_crab() -> void:

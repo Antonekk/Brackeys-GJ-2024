@@ -30,6 +30,10 @@ func handle_level_change(next):
 		"castle":
 			rich_text_label.visible = false
 			next_level = load("res://Stages/CastleInside/castle_inside.tscn")
+		"end":
+			next_level = load("res://Stages/End/end.tscn")
+		"end_sad":
+			next_level = load("res://Stages/End/end_sad.tscn")
 		_:
 			return
 	next_level = next_level.instantiate()

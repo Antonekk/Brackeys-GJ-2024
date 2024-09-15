@@ -9,6 +9,7 @@ var can_enter : bool
 
 var max_castle_lvl : int
 var current_castle_lvl : int
+@onready var health_system: HealthSystem = $HealthSystem
 
 
 var max_flag_lvl : int
