@@ -511,6 +511,7 @@ radius = 6.0
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_system") groups=["player"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_c2po7")
@@ -539,6 +540,7 @@ position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_1yeyd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_2ayxc")
 position = Vector2(1, -11)
 scale = Vector2(0.063, 0.063)
