@@ -51,6 +51,7 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_ulegu")
 
 [node name="Entry" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry"]
 position = Vector2(0, 7)

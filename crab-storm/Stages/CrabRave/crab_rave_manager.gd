@@ -28,5 +28,5 @@ func _process(delta: float) -> void:
 	if crab_spawn_ended:
 		if crab_factory.get_child_count() == 0 and has_player_won != true:
 			has_player_won = true
-			animation_player.play("return_to_castle")
 			castle_enter.emit()
+			animation_player.play("return_to_castle")

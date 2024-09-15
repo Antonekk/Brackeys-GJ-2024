@@ -11,6 +11,7 @@ var enabled = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	points = 0
 	rng.randomize()
 	var dummy_ryba = ryba.instantiate()
 	ryba_max = rng.randi_range(5, 7)
@@ -30,6 +31,7 @@ func Click(fish):
 		points += 1
 		fish_clicked = true
 		if points == ryba_max:
+			enabled = false
 			scene.parameteres["fish"] += points
 			SignalBus.level_change.emit("beach_res")
 			print("swap")

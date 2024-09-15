@@ -40,6 +40,7 @@ func change_castle_state(castle_lvl: int, flag_lvl: int):
 
 
 func _on_entry_body_entered(body: Node2D) -> void:
+	print("entered")
 	if enable:
 		beach_rave.parameteres["phase"] = 1
 		beach_rave.parameteres["lvl"] += 1
