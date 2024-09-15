@@ -28,6 +28,7 @@ func handle_level_change(next):
 		"mining":
 			next_level = load("res://Stages/Minigames/Mining/mining_minigame.tscn")
 		"castle":
+			rich_text_label.visible = false
 			next_level = load("res://Stages/CastleInside/castle_inside.tscn")
 		_:
 			return
