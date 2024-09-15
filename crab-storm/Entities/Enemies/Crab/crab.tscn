@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d0yjnehn4wagh"]
+[gd_scene load_steps=36 format=3 uid="uid://d0yjnehn4wagh"]
 
 [ext_resource type="Script" path="res://Entities/Enemies/Crab/crab.gd" id="1_ij7ap"]
 [ext_resource type="Texture2D" uid="uid://cnlfurhnrli7" path="res://Entities/Enemies/Crab/Art/crab_attack.png" id="2_3c3gp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="5_yooot"]
 [ext_resource type="Script" path="res://Common/HealthSystem/Enemy_Health_bar.gd" id="6_d3lwu"]
 [ext_resource type="PackedScene" uid="uid://d6lcgibpdltu" path="res://Common/HitboxSystem/hitbox_component.tscn" id="7_2pvtk"]
+[ext_resource type="AudioStream" uid="uid://bpq2uvvs0dude" path="res://Entities/Enemies/Crab/krabatak.mp3" id="10_s8aio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ceguy"]
 atlas = ExtResource("2_3c3gp")
@@ -322,6 +323,9 @@ shape = SubResource("CapsuleShape2D_jj5mx")
 libraries = {
 "": SubResource("AnimationLibrary_ebk8o")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_s8aio")
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]

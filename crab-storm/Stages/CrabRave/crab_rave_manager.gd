@@ -10,12 +10,18 @@ var has_player_won : bool = false
 @onready var crab_factory: CrabFactory = $"../CrabFactory"
 @onready var castle: CastleChange = $"../Castle"
 signal castle_enter()
+@onready var rocks: Control = $"../CanvasLayer/Rocks"
 
 
 func change_to_endgame():
 	SignalBus.level_change.emit("end_sad")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var rocks_indicators = rocks.get_children()
+	rocks_indicators[0].visible = true
+	for i in range(1,beach_rave.parameteres["castle"]["fishlvl"]):
+		rocks_indicators[i].visible = true
+	
 	player.health_system.handle_death.connect(change_to_endgame)
 	castle.health_system.handle_death.connect(change_to_endgame)
 	animation_player.play("rave_is_comming")

@@ -1,27 +1,30 @@
-[gd_scene load_steps=26 format=4]
+[gd_scene load_steps=29 format=4]
 
-[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_1qxxm"]
-[ext_resource type="Texture2D" path="res://Common/HealthSystem/healthbarUnder.png" id="2_w1cxu"]
-[ext_resource type="Texture2D" path="res://Common/HealthSystem/healthbarProgress.png" id="3_hlw5g"]
-[ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="4_l3u87"]
-[ext_resource type="Texture2D" path="res://Assets/Tilesets/BeachTileset.png" id="5_yc3xk"]
-[ext_resource type="Texture2D" path="res://Assets/Tilesets/rocks_and_branches.png" id="6_nqlmf"]
-[ext_resource type="PackedScene" path="res://Entities/Player/Player.tscn" id="7_6au8c"]
-[ext_resource type="Script" path="res://Entities/Player/player_movement.gd" id="8_02ng8"]
-[ext_resource type="PackedScene" path="res://Entities/Castle_Inside/fish_station.tscn" id="9_ius21"]
-[ext_resource type="Texture2D" path="res://Entities/Castle_Inside/stacjaryby.png" id="10_4tygg"]
-[ext_resource type="PackedScene" path="res://Entities/Castle_Inside/stone_station.tscn" id="11_kvfn0"]
-[ext_resource type="Texture2D" path="res://Entities/Castle_Inside/stacjakamien.png" id="12_8vvnw"]
-[ext_resource type="PackedScene" path="res://Entities/Castle_Inside/wood_station.tscn" id="13_l5sco"]
-[ext_resource type="Texture2D" path="res://Entities/Castle_Inside/stacjadrewno.png" id="14_k7u0p"]
-[ext_resource type="PackedScene" path="res://Entities/castle/Castle.tscn" id="15_sfusw"]
-[ext_resource type="Script" path="res://Entities/castle/castle_change.gd" id="16_ynhh1"]
-[ext_resource type="PackedScene" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.tscn" id="17_muaqv"]
-[ext_resource type="Shader" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.gdshader" id="18_2h5nv"]
-[ext_resource type="Texture2D" path="res://Stages/Trigers/TreeMinigameTrig/dzewoziemia-export.png" id="19_aw82r"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_ojl43"]
+[ext_resource type="Texture2D" path="res://Common/HealthSystem/healthbarUnder.png" id="2_i6r25"]
+[ext_resource type="Texture2D" path="res://Common/HealthSystem/healthbarProgress.png" id="3_f6n7v"]
+[ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="4_uhii5"]
+[ext_resource type="Texture2D" path="res://Entities/Player/Art/roll_icon.png" id="5_v83wp"]
+[ext_resource type="Script" path="res://Entities/Player/roll_icon.gd" id="6_vrer1"]
+[ext_resource type="Texture2D" path="res://Assets/Tilesets/BeachTileset.png" id="7_j6f8y"]
+[ext_resource type="Texture2D" path="res://Assets/Tilesets/rocks_and_branches.png" id="8_bfuht"]
+[ext_resource type="PackedScene" path="res://Entities/Player/Player.tscn" id="9_if4ht"]
+[ext_resource type="Script" path="res://Entities/Player/player_movement.gd" id="10_im3d5"]
+[ext_resource type="PackedScene" path="res://Entities/Castle_Inside/fish_station.tscn" id="11_m3yfm"]
+[ext_resource type="Texture2D" path="res://Entities/Castle_Inside/stacjaryby.png" id="12_gcpye"]
+[ext_resource type="PackedScene" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_2v62s"]
+[ext_resource type="Texture2D" path="res://Entities/Castle_Inside/stacjakamien.png" id="14_fylhi"]
+[ext_resource type="PackedScene" path="res://Entities/Castle_Inside/wood_station.tscn" id="15_d2by5"]
+[ext_resource type="Texture2D" path="res://Entities/Castle_Inside/stacjadrewno.png" id="16_yqs5u"]
+[ext_resource type="PackedScene" path="res://Entities/castle/Castle.tscn" id="17_ayaoe"]
+[ext_resource type="Script" path="res://Entities/castle/castle_change.gd" id="18_137vq"]
+[ext_resource type="PackedScene" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.tscn" id="19_r82wy"]
+[ext_resource type="Shader" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.gdshader" id="20_tkqo5"]
+[ext_resource type="Texture2D" path="res://Stages/Trigers/TreeMinigameTrig/dzewoziemia-export.png" id="21_qxqvn"]
+[ext_resource type="Script" path="res://Stages/beach_resource_manager.gd" id="26_lmsbr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a2vms"]
-texture = ExtResource("5_yc3xk")
+texture = ExtResource("7_j6f8y")
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1.5, 8, 1.75, 8, -8, -8, -8)
@@ -85,7 +88,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_a2vms")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxhkh"]
-texture = ExtResource("6_nqlmf")
+texture = ExtResource("8_bfuht")
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/y_sort_origin = 3
@@ -118,7 +121,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_gxhkh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_22job"]
-shader = ExtResource("18_2h5nv")
+shader = ExtResource("20_tkqo5")
 shader_parameter/size_effect = 1.0
 shader_parameter/speed = 1.0
 shader_parameter/highlight_strength = 0.3
@@ -131,7 +134,7 @@ distance = -0.253776
 
 [node name="beach_resource" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_1qxxm")
+script = ExtResource("1_ojl43")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -147,10 +150,23 @@ grow_vertical = 0
 rotation = -1.5708
 value = 100.0
 nine_patch_stretch = true
-texture_under = ExtResource("2_w1cxu")
-texture_progress = ExtResource("3_hlw5g")
-script = ExtResource("4_l3u87")
+texture_under = ExtResource("2_i6r25")
+texture_progress = ExtResource("3_f6n7v")
+script = ExtResource("4_uhii5")
 player = NodePath("../../Player")
+
+[node name="Roll" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = -46.0
+offset_right = 128.0
+offset_bottom = -6.0
+grow_vertical = 0
+texture = ExtResource("5_v83wp")
+script = ExtResource("6_vrer1")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -165,41 +181,41 @@ tile_map_data = PackedByteArray("AAAEAAUAAQABAAEAAAAJAAMAAQAIAAEAAADz/wEAAQAJAAE
 tile_set = SubResource("TileSet_b28sw")
 use_kinematic_bodies = true
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("health_system") groups=["player"] instance=ExtResource("7_6au8c")]
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("health_system") groups=["player"] instance=ExtResource("9_if4ht")]
 y_sort_enabled = true
-position = Vector2(14.9436, 243.188)
+position = Vector2(25.0399, 177.849)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("8_02ng8")
+script = ExtResource("10_im3d5")
 health_system = NodePath("HealthSystem")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(1e-05, 1e-05)
 zoom = Vector2(5, 5)
 
-[node name="FishStation" type="Sprite2D" parent="." instance=ExtResource("9_ius21")]
+[node name="FishStation" type="Sprite2D" parent="." instance=ExtResource("11_m3yfm")]
 position = Vector2(743, 54)
-texture = ExtResource("10_4tygg")
+texture = ExtResource("12_gcpye")
 
-[node name="StoneStation" type="Sprite2D" parent="." instance=ExtResource("11_kvfn0")]
+[node name="StoneStation" type="Sprite2D" parent="." instance=ExtResource("13_2v62s")]
 position = Vector2(816, 54)
-texture = ExtResource("12_8vvnw")
+texture = ExtResource("14_fylhi")
 
-[node name="WoodStation" type="Sprite2D" parent="." instance=ExtResource("13_l5sco")]
+[node name="WoodStation" type="Sprite2D" parent="." instance=ExtResource("15_d2by5")]
 position = Vector2(897, 54)
-texture = ExtResource("14_k7u0p")
+texture = ExtResource("16_yqs5u")
 
-[node name="Castle" type="Node2D" parent="." node_paths=PackedStringArray("Castles", "Flags") instance=ExtResource("15_sfusw")]
+[node name="Castle" type="Node2D" parent="." node_paths=PackedStringArray("Castles", "Flags") instance=ExtResource("17_ayaoe")]
 position = Vector2(-105, 216)
-script = ExtResource("16_ynhh1")
+script = ExtResource("18_137vq")
 Castles = [NodePath("Castle1"), NodePath("Castle2"), NodePath("Castle3"), NodePath("Castle4")]
 Flags = [NodePath("Flag1"), NodePath("Flag2"), NodePath("Flag3"), NodePath("Flag4")]
 
-[node name="TreeTrigger" type="Sprite2D" parent="." instance=ExtResource("17_muaqv")]
+[node name="TreeTrigger" type="Sprite2D" parent="." instance=ExtResource("19_r82wy")]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_22job")
 position = Vector2(-337, 307)
-texture = ExtResource("19_aw82r")
+texture = ExtResource("21_qxqvn")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 collision_layer = 255
@@ -229,5 +245,8 @@ collision_priority = 7.0
 position = Vector2(208, 167)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_uwjdx")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("26_lmsbr")
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]

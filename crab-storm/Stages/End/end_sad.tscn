@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://cjppo1wfyb3x8"]
+[gd_scene load_steps=30 format=4 uid="uid://cjppo1wfyb3x8"]
 
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="1_wl8fo"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_y276d"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d30nlal36c1nj" path="res://Entities/castle/Castle1.png" id="8_d2umh"]
 [ext_resource type="Texture2D" uid="uid://cnlfurhnrli7" path="res://Entities/Enemies/Crab/Art/crab_attack.png" id="9_ljxd0"]
 [ext_resource type="Texture2D" uid="uid://tk1ngkw1lt8f" path="res://Entities/castle/flaga1.png" id="9_rt3je"]
+[ext_resource type="AudioStream" uid="uid://ccarru4p5msde" path="res://Stages/End/ded.mp3" id="11_gx17x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8t5b"]
 texture = ExtResource("1_wl8fo")
@@ -298,3 +299,8 @@ texture = ExtResource("8_d2umh")
 [node name="Flaga1" type="Sprite2D" parent="."]
 position = Vector2(-103, 180)
 texture = ExtResource("9_rt3je")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_gx17x")
+volume_db = 4.771
+autoplay = true

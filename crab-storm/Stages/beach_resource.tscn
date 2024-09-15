@@ -1,19 +1,22 @@
-[gd_scene load_steps=20 format=4 uid="uid://c0ky81pdvw2ul"]
+[gd_scene load_steps=23 format=4 uid="uid://c0ky81pdvw2ul"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_muh4b"]
 [ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="4_2bnsw"]
 [ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="5_6meew"]
+[ext_resource type="Texture2D" uid="uid://blumq1ho6ul8x" path="res://Entities/Player/Art/roll_icon.png" id="5_yqqbc"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_bar.gd" id="6_476d4"]
+[ext_resource type="Script" path="res://Entities/Player/roll_icon.gd" id="6_q0h3d"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="7_rkibo"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="8_ic06o"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="9_m226s"]
 [ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="11_n147e"]
 [ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="12_5svta"]
-[ext_resource type="PackedScene" uid="uid://bcx2vo1jio76j" path="res://Stages/Trigers/FishingMinigameTrig/fish_trigger.tscn" id="13_0537k"]
+[ext_resource type="PackedScene" path="res://Stages/Trigers/FishingMinigameTrig/fish_trigger.tscn" id="13_0537k"]
 [ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="13_wn243"]
 [ext_resource type="PackedScene" uid="uid://brkhu11trdlbd" path="res://Stages/Trigers/TreeMinigameTrig/tree_trigger.tscn" id="14_nrcko"]
-[ext_resource type="PackedScene" uid="uid://c2qcdo0ewvd1r" path="res://Entities/castle/Castle.tscn" id="14_usj0w"]
+[ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="14_usj0w"]
 [ext_resource type="PackedScene" uid="uid://b17si64f1vrwk" path="res://Stages/Trigers/MiningMinigameTrig/rock_trigger.tscn" id="14_yt02x"]
+[ext_resource type="Script" path="res://Stages/beach_resource_manager.gd" id="15_ghuka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a2vms"]
 texture = ExtResource("7_rkibo")
@@ -137,6 +140,18 @@ texture_progress = ExtResource("5_6meew")
 script = ExtResource("6_476d4")
 player = NodePath("../../Player")
 
+[node name="Roll" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 88.0
+offset_top = -46.0
+offset_right = 128.0
+offset_bottom = -6.0
+grow_vertical = 0
+texture = ExtResource("5_yqqbc")
+script = ExtResource("6_q0h3d")
+
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
 use_parent_material = true
@@ -172,11 +187,20 @@ position = Vector2(-105, 216)
 [node name="TreeTrigger" parent="." instance=ExtResource("14_nrcko")]
 position = Vector2(-337, 307)
 
+[node name="TreeTrigger2" parent="." instance=ExtResource("14_nrcko")]
+position = Vector2(107, 90)
+
 [node name="fish_trigger" parent="." instance=ExtResource("13_0537k")]
 position = Vector2(-238, -17)
 
+[node name="fish_trigger2" parent="." instance=ExtResource("13_0537k")]
+position = Vector2(14, -17)
+
 [node name="rock_trigger" parent="." instance=ExtResource("14_yt02x")]
-position = Vector2(94, 255)
+position = Vector2(-313, 141)
+
+[node name="rock_trigger2" parent="." instance=ExtResource("14_yt02x")]
+position = Vector2(131, 236)
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 collision_layer = 255
@@ -206,5 +230,8 @@ collision_priority = 7.0
 position = Vector2(208, 167)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_uwjdx")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("15_ghuka")
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]

@@ -1,11 +1,11 @@
 extends Node2D
 class_name CrabFactory
 
-const PATH_LIMIT_NUM : int = 2
+const PATH_LIMIT_NUM : int = 6
 @onready var beach_rave: SceneScript = $".."
 
 var level : int
-const MAX_CRAB_COUNT : int = 25
+const MAX_CRAB_COUNT : int = 50
 
 const CRAB = preload("res://Entities/Enemies/Crab/crab.tscn")
 
@@ -25,7 +25,7 @@ func add_killed_crab() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level = beach_rave.parameteres["lvl"]
-	crabs_count = min(((level +1) * 4) + randi_range(0,level), MAX_CRAB_COUNT)
+	crabs_count = min(((level+1) * 4) + randi_range(1,(level*2 )), MAX_CRAB_COUNT)
 	spawn_crab()
 
 func spawn_crab() -> void:
@@ -35,7 +35,7 @@ func spawn_crab() -> void:
 		var random_path = randi_range(1,PATH_LIMIT_NUM)
 		crab_instance.crab_path_to_load = path_to_crabs.format({"path_num" : random_path})
 		self.add_child(crab_instance)
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(randf_range(3,5)).timeout
 	has_ended_spawning.emit()
 	
 		

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name PlayerController
 
+@onready var beach_rave: SceneScript = $".."
 
 
 @export var health_system : HealthSystem
@@ -8,7 +9,8 @@ const SPEED = 75.0
 const RUN_SPEED = 110.0
 
 
-
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+var ammo_count: int
 
 const DODGE_SPEED: float = 300.0
 const DODGE_COOLDOWN: float = 5.0
@@ -37,6 +39,7 @@ signal dodge_is_up
 enum AttackState {EMPTY_AMMO,COLLECTING_AMMO ,HAS_AMMO}
 var CurrentAttackState : AttackState = AttackState.EMPTY_AMMO
 
+@onready var dodge: AudioStreamPlayer2D = $Dodge
 
 
 var dodge_direction:Vector2
@@ -45,12 +48,14 @@ var dodge_direction:Vector2
 signal player_position(v: Vector2)
 
 func _ready() -> void:
+	ammo_count = max(beach_rave.parameteres["castle"]["fishlvl"], 1)
 	health_system.health_change.connect(play_hurt_anim)
 
 # function for handling dodging logic
 func handle_dodge_cooldowns() -> void:
 	collision_mask = 0b001
 	CurrentDodgingState = DodgeState.IS_DODGING
+	dodge.play()
 	await get_tree().create_timer(DODGE_TIME).timeout
 	dodge_on_cooldown.emit()
 	print("DODGE ENDED")
@@ -72,14 +77,15 @@ func handle_ammo_pickup() -> void:
 	
 func handle_shooting_projectile() -> void:
 	CurrentAttackState = AttackState.EMPTY_AMMO
-	var ammo_instance : RigidBody2D = Rock_Ammo_Projectile.instantiate()
-	ammo_instance.position = bullet_spawn_point.global_position
-	
-	var vect = (get_global_mouse_position() - bullet_spawn_point.global_position).normalized()
-	
-	
-	ammo_instance.apply_impulse(vect*BULLET_SPEED, Vector2(0,0))
-	get_tree().root.add_child(ammo_instance)
+	for i in ammo_count:
+		var ammo_instance : RigidBody2D = Rock_Ammo_Projectile.instantiate()
+		ammo_instance.position = bullet_spawn_point.global_position
+		
+		var vect = (get_global_mouse_position() - bullet_spawn_point.global_position).normalized()
+		ammo_instance.apply_impulse(vect*BULLET_SPEED, Vector2(0,0))
+		get_tree().root.add_child(ammo_instance)
+		await get_tree().create_timer(0.1).timeout
+		
 	
 	
 #handle player movement
@@ -166,6 +172,8 @@ func _process(delta: float) -> void:
 		player_sprite.play("dodge")
 	if CurrentAttackState == AttackState.COLLECTING_AMMO and current_animation!="ammo_pickup":
 		player_sprite.play("ammo_pickup")
+		audio_stream_player.play()
+		
 
 
 func play_hurt_anim() -> void:

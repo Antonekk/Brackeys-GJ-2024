@@ -7,6 +7,7 @@ extends Sprite2D
 
 
 var needed_for_levels : Array[int] = [5,15,25]
+@onready var upgrade: AudioStreamPlayer = $"../Upgrade"
 
 
 func change_labels() -> void:
@@ -26,8 +27,9 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 		if castle_inside.parameteres["wood"] >= needed_for_levels[castle_inside.parameteres["castle"]["woodlvl"]]:
 			castle_inside.parameteres["wood"] -= needed_for_levels[castle_inside.parameteres["castle"]["woodlvl"]]
 			castle_inside.parameteres["castle"]["woodlvl"] += 1
+			upgrade.play()
 			change_labels()
-	label.text = "upgrade: more crab traps"
+	label.text = "upgrade: more wooden blocades"
 
 
 func _on_interact_area_area_exited(area: Area2D) -> void:

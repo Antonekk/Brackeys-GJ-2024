@@ -1,28 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwlcf4hsi04da"]
+[gd_scene load_steps=11 format=3 uid="uid://cwlcf4hsi04da"]
 
 [ext_resource type="Script" path="res://Entities/Pickable/Rock/rock.gd" id="1_cd2if"]
+[ext_resource type="Texture2D" uid="uid://dsr4wapgbkpkm" path="res://Entities/Pickable/Rock/Art/rock.png" id="1_ovrar"]
 [ext_resource type="PackedScene" uid="uid://dd1t7dg0ltshf" path="res://Common/PickableObject/pickable.tscn" id="1_qd4tl"]
-[ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="2_eon5l"]
 [ext_resource type="Script" path="res://Common/HitboxSystem/hitbox_component.gd" id="3_1ut4f"]
 [ext_resource type="Script" path="res://Common/HealthSystem/health_system.gd" id="4_lpwit"]
 [ext_resource type="Texture2D" uid="uid://bdenu2du8cfbx" path="res://Common/HealthSystem/healthbarUnder.png" id="5_xxi2h"]
 [ext_resource type="Texture2D" uid="uid://bjateg3lowq82" path="res://Common/HealthSystem/healthbarProgress.png" id="6_rh2lg"]
 [ext_resource type="Script" path="res://Common/HealthSystem/Enemy_Health_bar.gd" id="7_m83f7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wh3fe"]
-atlas = ExtResource("2_eon5l")
-region = Rect2(64, 33, 16, 11)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_aa47t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wh3fe")
-}],
-"loop": true,
-"name": &"catch",
-"speed": 12.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ids6t"]
 radius = 3.0
@@ -33,18 +18,15 @@ radius = 6.15385
 height = 21.5385
 
 [node name="Rock" type="StaticBody2D"]
+scale = Vector2(0.65, 0.65)
 collision_layer = 4
 collision_mask = 20
 script = ExtResource("1_cd2if")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_aa47t")
-animation = &"catch"
-autoplay = "catch"
-frame_progress = 0.409244
+[node name="RockSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ovrar")
 
 [node name="Pickable" parent="." node_paths=PackedStringArray("Collider", "PickableObject") instance=ExtResource("1_qd4tl")]
-z_index = 1
 position = Vector2(1, 0)
 rotation = 1.5708
 Collider = NodePath("../RockCollision")
@@ -62,14 +44,13 @@ script = ExtResource("3_1ut4f")
 health_component = NodePath("../HealthSystem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(1.53846, 1.53846)
+position = Vector2(1.53846, 0)
 rotation = 1.5708
-scale = Vector2(0.716282, 0.938459)
 shape = SubResource("CapsuleShape2D_4bpvp")
 
 [node name="HealthSystem" type="Node2D" parent="."]
 script = ExtResource("4_lpwit")
-MAX_HEALTH = 25
+MAX_HEALTH = 5
 
 [node name="HealthBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("entity_health")]
 offset_left = -6.15385

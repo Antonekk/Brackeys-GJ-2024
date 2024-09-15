@@ -6,6 +6,7 @@ extends Sprite2D
 @onready var label: Label = $"../CanvasLayer/Label"
 
 var needed_for_levels : Array[int] = [5,15,25]
+@onready var upgrade: AudioStreamPlayer = $"../Upgrade"
 
 
 func change_labels() -> void:
@@ -24,9 +25,10 @@ func _on_interact_area_area_entered(area: Area2D) -> void:
 		if castle_inside.parameteres["rock"] >= needed_for_levels[castle_inside.parameteres["castle"]["rocklvl"]]:
 			castle_inside.parameteres["rock"] -= needed_for_levels[castle_inside.parameteres["castle"]["rocklvl"]]
 			castle_inside.parameteres["castle"]["rocklvl"] += 1
+			upgrade.play()
 			change_labels()
 		
-	label.text = "upgrade: better castle"
+	label.text = "upgrade: mightier castle (win condition)"
 
 
 func _on_interact_area_area_exited(area: Area2D) -> void:

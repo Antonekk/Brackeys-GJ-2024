@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://bxasbxkdf1spb"]
+[gd_scene load_steps=17 format=4 uid="uid://bxasbxkdf1spb"]
 
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="1_vxxsm"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_x8eov"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="2_ybjb1"]
 [ext_resource type="Texture2D" uid="uid://v0h7ut4yo81" path="res://Entities/castle/Castle4.png" id="3_7xgng"]
 [ext_resource type="Texture2D" uid="uid://dlk5s57coi0wn" path="res://Entities/castle/flaga3.png" id="4_seser"]
 [ext_resource type="Texture2D" uid="uid://b4i10ry8esirc" path="res://Entities/Player/Art/idle.png" id="5_i8u0x"]
 [ext_resource type="FontFile" uid="uid://bw01338ngvlwl" path="res://Assets/Fonts/Daydream.ttf" id="6_a4xc7"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8t5b"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2eh1p"]
 texture = ExtResource("1_vxxsm")
 0:0/0 = 0
 1:0/0 = 0
@@ -69,9 +70,9 @@ texture = ExtResource("1_vxxsm")
 
 [sub_resource type="TileSet" id="TileSet_lbc8b"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_x8t5b")
+sources/1 = SubResource("TileSetAtlasSource_2eh1p")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t01bs"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwyg4"]
 texture = ExtResource("2_ybjb1")
 0:0/0 = 0
 1:0/0 = 0
@@ -102,7 +103,7 @@ texture = ExtResource("2_ybjb1")
 
 [sub_resource type="TileSet" id="TileSet_ylrt7"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_t01bs")
+sources/1 = SubResource("TileSetAtlasSource_cwyg4")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66tpd"]
 atlas = ExtResource("5_i8u0x")
@@ -145,6 +146,7 @@ shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.815686)
 
 [node name="end" type="Node2D"]
+script = ExtResource("1_x8eov")
 
 [node name="Ground2" type="TileMapLayer" parent="."]
 z_index = -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://7rpqknlo77qc"]
+[gd_scene load_steps=34 format=4 uid="uid://7rpqknlo77qc"]
 
 [ext_resource type="Texture2D" uid="uid://bpfgcg3n0mv04" path="res://Assets/Tilesets/tile_anim.png" id="1_3iaui"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_nhpkc"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://blumq1ho6ul8x" path="res://Entities/Player/Art/roll_icon.png" id="17_igyrv"]
 [ext_resource type="Script" path="res://Entities/Player/roll_icon.gd" id="18_o883r"]
 [ext_resource type="Script" path="res://Stages/CastleInside/exit_castle.gd" id="20_e045o"]
+[ext_resource type="AudioStream" uid="uid://ptdik0bhwt5x" path="res://Stages/CastleInside/upgrejd.mp3" id="21_gie4b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fytqk"]
 font = ExtResource("10_h67xk")
@@ -434,6 +435,9 @@ script = ExtResource("20_e045o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_vrwkr")
+
+[node name="Upgrade" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_gie4b")
 
 [connection signal="area_entered" from="FishStation/InteractArea" to="FishStation" method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="FishStation/InteractArea" to="FishStation" method="_on_interact_area_area_exited"]

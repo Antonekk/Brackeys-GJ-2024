@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Stages/End/scene_manager.gd" id="1_xx0ro"]
 [ext_resource type="Script" path="res://Stages/timer.gd" id="2_8qulv"]
 [ext_resource type="FontFile" uid="uid://bw01338ngvlwl" path="res://Assets/Fonts/Daydream.ttf" id="2_tvdjb"]
-[ext_resource type="PackedScene" uid="uid://cq2hv3iq05my6" path="res://Stages/menu.tscn" id="4_5a43q"]
+[ext_resource type="PackedScene" uid="uid://dqmnluk3arfm8" path="res://Stages/menu.tscn" id="4_5a43q"]
 [ext_resource type="AudioStream" uid="uid://55ewl8spid8m" path="res://Stages/Minigames/Mining/loopgot.mp3" id="5_etqnp"]
 
 [sub_resource type="Theme" id="Theme_nrmqg"]

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Path" load_steps=2 format=3 uid="uid://bir323hbm5u5x"]
+
+[ext_resource type="Script" path="res://Entities/Paths/path.gd" id="1_ufccu"]
+
+[resource]
+script = ExtResource("1_ufccu")
+points = Array[Vector2]([Vector2(5, -1), Vector2(7, 3), Vector2(-21, 5), Vector2(-16, 8), Vector2(-5, 12)])

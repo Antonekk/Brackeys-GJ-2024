@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://ihk6hcpo1kpp"]
+[gd_scene load_steps=32 format=4 uid="uid://ihk6hcpo1kpp"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_oy0ff"]
 [ext_resource type="Shader" path="res://Utils/Shaders/rain.gdshader" id="2_dccqw"]
@@ -12,13 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="8_v2xjv"]
 [ext_resource type="Texture2D" uid="uid://di7udm6dmn3j0" path="res://Assets/Tilesets/rocks_and_branches.png" id="9_76pup"]
 [ext_resource type="Script" path="res://Entities/Player/roll_icon.gd" id="9_fhar0"]
+[ext_resource type="Texture2D" uid="uid://dr5yolpt8k8sq" path="res://Entities/Pickable/Rock/Art/rock2.png" id="10_n733x"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="10_olr2s"]
-[ext_resource type="PackedScene" uid="uid://cwlcf4hsi04da" path="res://Entities/Pickable/Rock/rock.tscn" id="11_twtvm"]
 [ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="12_ya06f"]
 [ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="13_a7shs"]
 [ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="14_0sw50"]
 [ext_resource type="PackedScene" uid="uid://epxhlxbiyyqo" path="res://Entities/castle/Castle.tscn" id="15_crh1r"]
 [ext_resource type="Script" path="res://Stages/CrabRave/crab_rave_manager.gd" id="16_psgng"]
+[ext_resource type="Script" path="res://Stages/baricades_creator.gd" id="19_kai78"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78bq4"]
 shader = ExtResource("2_dccqw")
@@ -413,6 +414,46 @@ grow_vertical = 0
 texture = ExtResource("8_534wx")
 script = ExtResource("9_fhar0")
 
+[node name="Rocks" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="K1" type="TextureRect" parent="CanvasLayer/Rocks"]
+visible = false
+layout_mode = 2
+offset_left = -40.0
+offset_top = -35.0
+offset_bottom = 5.0
+scale = Vector2(2, 2)
+texture = ExtResource("10_n733x")
+
+[node name="K2" type="TextureRect" parent="CanvasLayer/Rocks"]
+visible = false
+layout_mode = 2
+offset_left = -41.0
+offset_top = -99.0
+offset_right = -1.0
+offset_bottom = -59.0
+scale = Vector2(2, 2)
+texture = ExtResource("10_n733x")
+
+[node name="K3" type="TextureRect" parent="CanvasLayer/Rocks"]
+visible = false
+layout_mode = 2
+offset_left = -40.0
+offset_top = -166.0
+offset_bottom = -126.0
+scale = Vector2(2, 2)
+texture = ExtResource("10_n733x")
+
 [node name="CrabFactory" parent="." instance=ExtResource("7_3jigt")]
 
 [node name="Ground2" type="TileMapLayer" parent="."]
@@ -434,9 +475,6 @@ position = Vector2(-102, 178)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(1e-05, 1e-05)
 zoom = Vector2(5, 5)
-
-[node name="Rock" parent="." instance=ExtResource("11_twtvm")]
-position = Vector2(31, 45)
 
 [node name="FishStation" parent="." instance=ExtResource("12_ya06f")]
 position = Vector2(743, 54)
@@ -481,6 +519,19 @@ collision_priority = 7.0
 position = Vector2(208, 167)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_ifaa4")
+
+[node name="BaricadesCreator" type="Node2D" parent="."]
+position = Vector2(2, 4)
+script = ExtResource("19_kai78")
+
+[node name="Marker2D" type="Marker2D" parent="BaricadesCreator"]
+position = Vector2(-61, 127)
+
+[node name="Marker2D2" type="Marker2D" parent="BaricadesCreator"]
+position = Vector2(-105, 126)
+
+[node name="Marker2D3" type="Marker2D" parent="BaricadesCreator"]
+position = Vector2(-153, 126)
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]
 [connection signal="castle_enter" from="CrabRaveManager" to="Castle" method="_on_crab_rave_manager_castle_enter"]

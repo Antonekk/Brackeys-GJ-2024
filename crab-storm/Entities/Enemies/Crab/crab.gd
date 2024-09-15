@@ -4,6 +4,7 @@ class_name CrabController
 var attack_cooldown : float = 0.46
 
 var currently_in_attack_zone : Array[Area2D]
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var crab_health_system : HealthSystem
 @onready var crab_sprite: AnimatedSprite2D = $CrabSprite
@@ -14,7 +15,7 @@ signal has_died
 
 var crab_path_to_load : String
 var crab_path : Path
-var SPEED = 20
+var SPEED = 40
 
 var is_attacking = false
 
@@ -23,6 +24,7 @@ const DAMAGE : int = 1
 func _ready() -> void:
 	crab_path = load(crab_path_to_load)
 	max_index = crab_path.points.size()
+	global_position = crab_path.get_point_world_pos(crab_path.points[0])
 	current_index = 0
 	crab_health_system.handle_death.connect(play_death_animation)
 	crab_health_system.health_change.connect(play_hurt_animation)
@@ -33,13 +35,16 @@ func play_hurt_animation() -> void:
 	crab_sprite.play("hurt")
 	
 func get_to_point(point_position : Vector2) -> Vector2:
-	var move_vector : Vector2 = ( point_position - global_position).normalized()
-	if move_vector.x < 0:
-		crab_sprite.flip_h = true
+	if !is_attacking:
+		var move_vector : Vector2 = ( point_position - global_position).normalized()
+		if move_vector.x < 0:
+			crab_sprite.flip_h = true
+		else:
+			crab_sprite.flip_h = false
+			
+		return move_vector * SPEED
 	else:
-		crab_sprite.flip_h = false
-		
-	return move_vector * SPEED
+		return Vector2.ZERO
 	
 
 
@@ -62,6 +67,7 @@ func _process(delta: float) -> void:
 	if currently_in_attack_zone.size() != 0 and !is_attacking:
 		crab_sprite.play("attack")
 		for enemy in currently_in_attack_zone:	
+			audio_stream_player_2d.play()
 			enemy.damage(DAMAGE)
 		handle_attack_cooldown()
 

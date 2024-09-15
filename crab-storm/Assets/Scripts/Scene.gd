@@ -1,6 +1,8 @@
 extends Node2D
 class_name SceneScript
 
+
+
 var parameteres = {
 	"wood": 0,
 	"rock": 0,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://b1t41e7dxhe88"]
+[gd_scene load_steps=78 format=3 uid="uid://b1t41e7dxhe88"]
 
 [ext_resource type="Script" path="res://Entities/Player/player_movement.gd" id="1_c2po7"]
 [ext_resource type="PackedScene" uid="uid://dwvubvgv8gb7q" path="res://Common/PickableObject/picker.tscn" id="2_usxer"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://iljrh6xnnqyg" path="res://Entities/Player/Art/cwalk.png" id="5_o3qc1"]
 [ext_resource type="Texture2D" uid="uid://ce3irnuium28g" path="res://Entities/Player/Art/hurt.png" id="6_cmrbp"]
 [ext_resource type="PackedScene" uid="uid://d6lcgibpdltu" path="res://Common/HitboxSystem/hitbox_component.tscn" id="9_yg6tf"]
+[ext_resource type="AudioStream" uid="uid://dy6bfgmys7wsc" path="res://Entities/Player/Sounds/chodzenie.mp3" id="12_8ugdj"]
+[ext_resource type="AudioStream" uid="uid://bhbx66yw1awku" path="res://Entities/Player/Sounds/flip.mp3" id="13_03g37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vlsm"]
 size = Vector2(11, 10)
@@ -558,3 +560,11 @@ health_component = NodePath("../HealthSystem")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(-1, -10)
 shape = SubResource("CapsuleShape2D_2d32l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8ugdj")
+pitch_scale = 2.9
+parameters/looping = false
+
+[node name="Dodge" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_03g37")
