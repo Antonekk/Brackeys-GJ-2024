@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://7rpqknlo77qc"]
+[gd_scene load_steps=13 format=4 uid="uid://7rpqknlo77qc"]
 
 [ext_resource type="Texture2D" uid="uid://bpfgcg3n0mv04" path="res://Assets/Tilesets/tile_anim.png" id="1_3iaui"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_nhpkc"]
 [ext_resource type="Texture2D" uid="uid://dqf1kcv7qio0l" path="res://Assets/Tilesets/BeachTileset.png" id="2_vkan4"]
 [ext_resource type="PackedScene" uid="uid://b0xj60cbkl2ti" path="res://Entities/Castle_Inside/crab_station.tscn" id="3_ff2s5"]
 [ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="4_4dfhx"]
 [ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="5_jxpv8"]
 [ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="6_g665k"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="7_alc34"]
+[ext_resource type="Script" path="res://Entities/Castle_Inside/crab_station.gd" id="9_r1hvr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kfa4y"]
 texture = ExtResource("1_3iaui")
@@ -64,6 +66,7 @@ texture = ExtResource("1_3iaui")
 0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:6/1 = 1
 0:6/1/transpose = true
+0:6/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:6/next_alternative_id = 4
 1:6/0 = 0
 1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -140,10 +143,12 @@ texture = ExtResource("2_vkan4")
 
 [sub_resource type="TileSet" id="TileSet_22pdk"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_yxmn4")
 sources/0 = SubResource("TileSetAtlasSource_kfa4y")
 
 [node name="CastleInside" type="Node2D"]
+script = ExtResource("1_nhpkc")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -170,3 +175,4 @@ zoom = Vector2(5, 5)
 
 [node name="CrabStation" parent="." instance=ExtResource("3_ff2s5")]
 position = Vector2(-80, -64)
+script = ExtResource("9_r1hvr")
