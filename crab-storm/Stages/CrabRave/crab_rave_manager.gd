@@ -6,7 +6,7 @@ var has_player_won : bool = false
 @onready var animation_player: AnimationPlayer = $"../CanvasLayer/Label/AnimationPlayer"
 @onready var crab_factory: CrabFactory = $"../CrabFactory"
 @onready var castle: CastleChange = $"../Castle"
-
+signal castle_enter()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,4 +29,4 @@ func _process(delta: float) -> void:
 		if crab_factory.get_child_count() == 0 and has_player_won != true:
 			has_player_won = true
 			animation_player.play("return_to_castle")
-			
+			castle_enter.emit()

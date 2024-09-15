@@ -451,3 +451,4 @@ position = Vector2(-105, 216)
 script = ExtResource("16_psgng")
 
 [connection signal="player_position" from="Player" to="." method="_on_player_player_position"]
+[connection signal="castle_enter" from="CrabRaveManager" to="Castle" method="_on_crab_rave_manager_castle_enter"]
