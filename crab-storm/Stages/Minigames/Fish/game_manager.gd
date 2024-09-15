@@ -7,6 +7,7 @@ var points = 0
 var fish_clicked = false
 var enabled = true
 @onready var scene: Node2D = $".."
+@onready var audio_stream_player: AudioStreamPlayer = $"../AudioStreamPlayer"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +28,7 @@ func _ready() -> void:
 
 func Click(fish):
 	if enabled:
+		audio_stream_player.play()
 		fish.queue_free()
 		points += 1
 		fish_clicked = true

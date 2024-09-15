@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dchlrn5hxhy5c"]
+[gd_scene load_steps=16 format=4 uid="uid://dchlrn5hxhy5c"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_x3wxg"]
 [ext_resource type="Script" path="res://Stages/Minigames/Drzewo/Scripts/game_manager.gd" id="2_7ac4b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dbdufnpr4gqka" path="res://Assets/Tilesets/dzewo.png" id="8_kk5r4"]
 [ext_resource type="Texture2D" uid="uid://bd622yq60twb5" path="res://Stages/Minigames/Drzewo/Assets/korzen.png" id="9_eb225"]
 [ext_resource type="Texture2D" uid="uid://cwb53xhcldul0" path="res://Stages/Minigames/Drzewo/Assets/koda.png" id="10_63vvw"]
+[ext_resource type="AudioStream" uid="uid://brs4kf3hom6yb" path="res://Stages/Minigames/Drzewo/cieciedrewna.mp3" id="11_mmbf4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_113k8"]
 texture = ExtResource("6_efej8")
@@ -111,3 +112,7 @@ texture = ExtResource("9_eb225")
 [node name="Koda" type="Sprite2D" parent="."]
 position = Vector2(0, 8)
 texture = ExtResource("10_63vvw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mmbf4")
+volume_db = 24.0

@@ -3,6 +3,7 @@ extends Node2D
 var health = 100
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 var enabled = true
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	if enabled:		
 		if Input.is_action_just_pressed("lmb") or Input.is_action_just_pressed("rmb"):
 			health -= 1
+			audio_stream_player_2d.play()
 		match health:
 			100:
 				anim.stop()
