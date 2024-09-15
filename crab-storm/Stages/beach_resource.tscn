@@ -112,7 +112,7 @@ texture = ExtResource("8_ic06o")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_q2rlt")
 
-[node name="BeachResource" type="Node2D"]
+[node name="beach_resource" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_muh4b")
 

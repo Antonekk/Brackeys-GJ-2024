@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq2hv3iq05my6"]
+
+[ext_resource type="Texture2D" uid="uid://btwlvo4o68lpm" path="res://Stages/start.png" id="1_0o7tn"]
+[ext_resource type="Script" path="res://Stages/menu.gd" id="1_ph556"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ggyhm"]
+
+[node name="Menu" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_ph556")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 321)
+scale = Vector2(5.20556, 5.20556)
+texture = ExtResource("1_0o7tn")
+
+[node name="Button" type="Button" parent="Sprite2D"]
+offset_left = -37.8442
+offset_top = -17.6734
+offset_right = 34.1558
+offset_bottom = 54.3266
+scale = Vector2(1.06651, 0.580121)
+icon = SubResource("ImageTexture_ggyhm")
+flat = true
+
+[connection signal="pressed" from="Sprite2D/Button" to="." method="_on_button_pressed"]
