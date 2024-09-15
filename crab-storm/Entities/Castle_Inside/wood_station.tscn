@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpnmfyxgrm15u"]
+[gd_scene load_steps=3 format=3 uid="uid://bpnmfyxgrm15u"]
 
 [ext_resource type="Texture2D" uid="uid://dhhab64pj5yyp" path="res://Entities/Castle_Inside/stacjadrewno.png" id="1_ach25"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_sdqwg"]
-radius = 26.0192
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt1v7"]
 size = Vector2(32, 8)
@@ -11,14 +8,6 @@ size = Vector2(32, 8)
 [node name="WoodStation" type="Sprite2D"]
 position = Vector2(0, -18)
 texture = ExtResource("1_ach25")
-
-[node name="InteractArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(1, 5)
-shape = SubResource("CircleShape2D_sdqwg")
 
 [node name="CollisionArea" type="StaticBody2D" parent="."]
 collision_mask = 2
