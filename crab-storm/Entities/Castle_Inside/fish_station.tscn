@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bip801fnwltua"]
+[gd_scene load_steps=3 format=3 uid="uid://bip801fnwltua"]
 
 [ext_resource type="Texture2D" uid="uid://d2ird84jj2lka" path="res://Entities/Castle_Inside/stacjaryby.png" id="1_4un1h"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4j6vi"]
-radius = 26.0192
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ry0r"]
 size = Vector2(32, 8)
@@ -11,14 +8,6 @@ size = Vector2(32, 8)
 [node name="FishStation" type="Sprite2D"]
 position = Vector2(0, -18)
 texture = ExtResource("1_4un1h")
-
-[node name="InteractArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(1, 5)
-shape = SubResource("CircleShape2D_4j6vi")
 
 [node name="CollisionArea" type="StaticBody2D" parent="."]
 collision_mask = 2

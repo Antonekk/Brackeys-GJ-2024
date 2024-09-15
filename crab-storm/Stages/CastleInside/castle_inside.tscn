@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://7rpqknlo77qc"]
+[gd_scene load_steps=24 format=4 uid="uid://7rpqknlo77qc"]
 
 [ext_resource type="Texture2D" uid="uid://bpfgcg3n0mv04" path="res://Assets/Tilesets/tile_anim.png" id="1_3iaui"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scene.gd" id="1_nhpkc"]
@@ -7,8 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://bip801fnwltua" path="res://Entities/Castle_Inside/fish_station.tscn" id="4_4dfhx"]
 [ext_resource type="PackedScene" uid="uid://6bxw15b7ln8b" path="res://Entities/Castle_Inside/stone_station.tscn" id="5_jxpv8"]
 [ext_resource type="PackedScene" uid="uid://bpnmfyxgrm15u" path="res://Entities/Castle_Inside/wood_station.tscn" id="6_g665k"]
+[ext_resource type="Script" path="res://Entities/Castle_Inside/fish_station.gd" id="6_so6l3"]
 [ext_resource type="PackedScene" uid="uid://b1t41e7dxhe88" path="res://Entities/Player/Player.tscn" id="7_alc34"]
+[ext_resource type="Script" path="res://Entities/Castle_Inside/stone_station.gd" id="7_odp86"]
+[ext_resource type="Script" path="res://Entities/Castle_Inside/wood_station.gd" id="8_82flv"]
 [ext_resource type="Script" path="res://Entities/Castle_Inside/crab_station.gd" id="9_r1hvr"]
+[ext_resource type="FontFile" uid="uid://bw01338ngvlwl" path="res://Assets/Fonts/Daydream.ttf" id="10_h67xk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fytqk"]
+font = ExtResource("10_h67xk")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0.0509804, 0.0509804, 0.0509804, 0.823529)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kfa4y"]
 texture = ExtResource("1_3iaui")
@@ -147,8 +159,46 @@ physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_yxmn4")
 sources/0 = SubResource("TileSetAtlasSource_kfa4y")
 
+[sub_resource type="LabelSettings" id="LabelSettings_6j3ma"]
+font = ExtResource("10_h67xk")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gfhey"]
+font = ExtResource("10_h67xk")
+font_size = 18
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0oc60"]
+radius = 26.0192
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ystia"]
+radius = 26.0192
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0y8b7"]
+radius = 26.0192
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rc1kd"]
+radius = 26.0192
+
 [node name="CastleInside" type="Node2D"]
 script = ExtResource("1_nhpkc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -461.5
+offset_right = 461.5
+offset_bottom = 67.0
+grow_horizontal = 2
+scale = Vector2(0.452231, 0.452231)
+label_settings = SubResource("LabelSettings_fytqk")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Ground" type="TileMapLayer" parent="."]
 z_index = -1
@@ -159,12 +209,93 @@ tile_set = SubResource("TileSet_22pdk")
 
 [node name="FishStation" parent="." instance=ExtResource("4_4dfhx")]
 position = Vector2(75, 49)
+script = ExtResource("6_so6l3")
+
+[node name="lvl" type="Label" parent="FishStation"]
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 59.0
+offset_bottom = 13.0
+scale = Vector2(0.24448, 0.302524)
+text = "lvl: "
+label_settings = SubResource("LabelSettings_6j3ma")
+
+[node name="needed" type="Label" parent="FishStation"]
+offset_left = -10.0
+offset_top = 16.0
+offset_right = 30.0
+offset_bottom = 41.0
+scale = Vector2(0.272213, 0.272213)
+text = "/"
+label_settings = SubResource("LabelSettings_gfhey")
+
+[node name="InteractArea" type="Area2D" parent="FishStation"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishStation/InteractArea"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_0oc60")
 
 [node name="StoneStation" parent="." instance=ExtResource("5_jxpv8")]
 position = Vector2(-80, 49)
+script = ExtResource("7_odp86")
+
+[node name="lvl" type="Label" parent="StoneStation"]
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 59.0
+offset_bottom = 13.0
+scale = Vector2(0.24448, 0.302524)
+text = "lvl: "
+label_settings = SubResource("LabelSettings_6j3ma")
+
+[node name="needed" type="Label" parent="StoneStation"]
+offset_left = -10.0
+offset_top = 16.0
+offset_right = 30.0
+offset_bottom = 41.0
+scale = Vector2(0.272213, 0.272213)
+text = "/"
+label_settings = SubResource("LabelSettings_gfhey")
+
+[node name="InteractArea" type="Area2D" parent="StoneStation"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneStation/InteractArea"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_ystia")
 
 [node name="WoodStation" parent="." instance=ExtResource("6_g665k")]
 position = Vector2(75, -64)
+script = ExtResource("8_82flv")
+
+[node name="lvl" type="Label" parent="WoodStation"]
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 59.0
+offset_bottom = 13.0
+scale = Vector2(0.24448, 0.302524)
+text = "lvl: "
+label_settings = SubResource("LabelSettings_6j3ma")
+
+[node name="needed" type="Label" parent="WoodStation"]
+offset_left = -10.0
+offset_top = 16.0
+offset_right = 30.0
+offset_bottom = 41.0
+scale = Vector2(0.272213, 0.272213)
+text = "/"
+label_settings = SubResource("LabelSettings_gfhey")
+
+[node name="InteractArea" type="Area2D" parent="WoodStation"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WoodStation/InteractArea"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_0y8b7")
 
 [node name="Player" parent="." instance=ExtResource("7_alc34")]
 position = Vector2(-1, 4)
@@ -176,3 +307,38 @@ zoom = Vector2(5, 5)
 [node name="CrabStation" parent="." instance=ExtResource("3_ff2s5")]
 position = Vector2(-80, -64)
 script = ExtResource("9_r1hvr")
+
+[node name="lvl" type="Label" parent="CrabStation"]
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 59.0
+offset_bottom = 13.0
+scale = Vector2(0.24448, 0.302524)
+text = "lvl: "
+label_settings = SubResource("LabelSettings_6j3ma")
+
+[node name="needed" type="Label" parent="CrabStation"]
+offset_left = -10.0
+offset_top = 16.0
+offset_right = 30.0
+offset_bottom = 41.0
+scale = Vector2(0.272213, 0.272213)
+text = "/"
+label_settings = SubResource("LabelSettings_gfhey")
+
+[node name="InteractArea" type="Area2D" parent="CrabStation"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrabStation/InteractArea"]
+position = Vector2(1, 5)
+shape = SubResource("CircleShape2D_rc1kd")
+
+[connection signal="area_entered" from="FishStation/InteractArea" to="FishStation" method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="FishStation/InteractArea" to="FishStation" method="_on_interact_area_area_exited"]
+[connection signal="area_entered" from="StoneStation/InteractArea" to="StoneStation" method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="StoneStation/InteractArea" to="StoneStation" method="_on_interact_area_area_exited"]
+[connection signal="area_entered" from="WoodStation/InteractArea" to="WoodStation" method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="WoodStation/InteractArea" to="WoodStation" method="_on_interact_area_area_exited"]
+[connection signal="area_entered" from="CrabStation/InteractArea" to="CrabStation" method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="CrabStation/InteractArea" to="CrabStation" method="_on_interact_area_area_exited"]
