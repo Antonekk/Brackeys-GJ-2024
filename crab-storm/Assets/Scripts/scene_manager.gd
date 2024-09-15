@@ -29,6 +29,8 @@ func handle_level_change(next):
 			next_level = load("res://Stages/Minigames/Fish/fishing_minigame.tscn")
 		"mining":
 			next_level = load("res://Stages/Minigames/Mining/mining_minigame.tscn")
+		"castle":
+			next_level = null # dodaj path
 		_:
 			return
 	next_level = next_level.instantiate()

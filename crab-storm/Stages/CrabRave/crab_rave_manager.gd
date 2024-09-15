@@ -2,7 +2,6 @@ extends Node2D
 
 var crab_spawn_ended : bool = false
 var has_player_won : bool = false
-
 @onready var beach_rave: SceneScript = $".."
 @onready var animation_player: AnimationPlayer = $"../CanvasLayer/Label/AnimationPlayer"
 @onready var crab_factory: CrabFactory = $"../CrabFactory"

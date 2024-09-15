@@ -6,14 +6,12 @@ var parameteres = {
 	"rock": 0,
 	"fish": 0,
 	"crab": 0,
-	"player_pos": Vector2(-102, 178),
 	"time": 0,
 	"castle": {"rocklvl": 0, "woodlvl": 0, "fishlvl": 0, "crablvl" : 0},
 	"lvl" : 0
 }
 
 func _ready() -> void:
-	SignalBus.player_pos_before.emit(parameteres["player_pos"])
 	print(parameteres)
 
 func cleanup():
