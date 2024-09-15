@@ -31,7 +31,7 @@ func Click(fish):
 		fish_clicked = true
 		if points == ryba_max:
 			scene.parameteres["fish"] += points
-			SignalBus.level_change.emit("beach")
+			SignalBus.level_change.emit("beach_res")
 			print("swap")
 			
 func _physics_process(delta: float) -> void:
